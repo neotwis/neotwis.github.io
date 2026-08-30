@@ -235,108 +235,88 @@ h1{
 
 .feed-image img:hover{
     transform:scale(1.02);
-/* =========================
-   PROJECTS
-========================= */
+
 
 .projects {
     width: 100%;
-    margin-top: 80px;
-    position: relative;
+    margin-top: 70px;
 }
-
-/* TITLE */
 
 .projects-title {
     display: flex;
     align-items: center;
-    gap: 18px;
-    margin-bottom: 30px;
+    gap: 15px;
+    margin-bottom: 25px;
 }
 
 .projects-title > span {
-    width: 54px;
-    height: 54px;
+    width: 48px;
+    height: 48px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 16px;
+    border-radius: 14px;
 
     background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.12);
-
-    backdrop-filter: blur(15px);
-    -webkit-backdrop-filter: blur(15px);
-
-    box-shadow:
-        0 10px 35px rgba(0, 0, 0, 0.2),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.1);
 
     transition: 0.3s ease;
 }
 
 .projects-title > span i {
-    font-size: 21px;
+    font-size: 18px;
 }
 
 .projects-title small {
     display: block;
 
-    font-size: 11px;
-    font-weight: 700;
+    font-size: 10px;
     letter-spacing: 3px;
 
-    opacity: 0.5;
-
-    margin-bottom: 3px;
+    opacity: 0.45;
+    margin-bottom: 2px;
 }
 
 .projects-title h2 {
     margin: 0;
-
-    font-size: 30px;
-    font-weight: 800;
-
-    letter-spacing: -0.5px;
+    font-size: 27px;
 }
+
 
 /* PROJECT LIST */
 
 .project-list {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
+    gap: 16px;
 }
+
 
 /* PROJECT CARD */
 
 .project {
     position: relative;
 
-    min-height: 230px;
-
-    padding: 28px;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
+    min-height: 225px;
+    padding: 23px;
 
     overflow: hidden;
 
-    border-radius: 24px;
+    border-radius: 20px;
 
-    background: rgba(255, 255, 255, 0.045);
+    background:
+        linear-gradient(
+            145deg,
+            rgba(255, 255, 255, 0.075),
+            rgba(255, 255, 255, 0.025)
+        );
 
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    backdrop-filter: blur(18px);
-    -webkit-backdrop-filter: blur(18px);
+    border: 1px solid rgba(255, 255, 255, 0.09);
 
     box-shadow:
-        0 15px 45px rgba(0, 0, 0, 0.18),
-        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+        0 15px 40px rgba(0, 0, 0, 0.15);
 
     transition:
         transform 0.35s ease,
@@ -344,110 +324,104 @@ h1{
         box-shadow 0.35s ease;
 }
 
-/* LIGHT EFFECT */
-
 .project::before {
     content: "";
 
     position: absolute;
 
-    width: 160px;
-    height: 160px;
+    width: 120px;
+    height: 120px;
 
-    top: -90px;
-    right: -70px;
+    top: -65px;
+    right: -65px;
 
     border-radius: 50%;
 
-    background: rgba(255, 255, 255, 0.07);
+    background: rgba(255, 255, 255, 0.06);
 
-    filter: blur(10px);
+    filter: blur(20px);
 
     transition: 0.4s ease;
 }
 
-.project::after {
-    content: "";
-
-    position: absolute;
-
-    left: 0;
-    right: 0;
-    bottom: 0;
-
-    height: 2px;
-
-    background: linear-gradient(
-        90deg,
-        transparent,
-        rgba(255, 255, 255, 0.45),
-        transparent
-    );
-
-    opacity: 0;
-
-    transition: 0.35s ease;
-}
-
-/* HOVER */
-
 .project:hover {
-    transform: translateY(-8px);
+    transform: translateY(-6px);
 
     border-color: rgba(255, 255, 255, 0.2);
 
     box-shadow:
-        0 25px 60px rgba(0, 0, 0, 0.28),
-        inset 0 1px 0 rgba(255, 255, 255, 0.08);
+        0 20px 55px rgba(0, 0, 0, 0.25);
 }
 
 .project:hover::before {
     transform: scale(1.5);
-    opacity: 1;
 }
 
-.project:hover::after {
-    opacity: 1;
+
+/* TOP */
+
+.project-top {
+    position: relative;
+    z-index: 2;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
+
+.project-number {
+    font-size: 11px;
+    font-weight: 700;
+
+    opacity: 0.25;
+}
+
 
 /* ICON */
 
 .project-icon {
-    width: 52px;
-    height: 52px;
+    width: 47px;
+    height: 47px;
 
     display: flex;
     align-items: center;
     justify-content: center;
 
-    border-radius: 15px;
+    border-radius: 14px;
 
     background: rgba(255, 255, 255, 0.07);
 
     border: 1px solid rgba(255, 255, 255, 0.1);
 
-    box-shadow:
-        inset 0 1px 0 rgba(255, 255, 255, 0.08),
-        0 8px 25px rgba(0, 0, 0, 0.15);
-
     transition: 0.35s ease;
 }
 
 .project-icon i {
-    font-size: 22px;
+    font-size: 20px;
 
-    transition:
-        transform 0.35s ease,
-        filter 0.35s ease;
+    transition: 0.35s ease;
 }
 
 .project:hover .project-icon {
-    transform: scale(1.08);
+    transform: scale(1.08) rotate(-3deg);
 }
 
 .project:hover .project-icon i {
-    transform: rotate(-5deg) scale(1.1);
+    transform: scale(1.1);
 }
+
+.discord i {
+    color: #5865f2;
+}
+
+.green i {
+    color: #69d18b;
+}
+
+.purple i {
+    color: #a78bfa;
+}
+
 
 /* CONTENT */
 
@@ -455,28 +429,27 @@ h1{
     position: relative;
     z-index: 2;
 
-    margin-top: 24px;
+    margin-top: 28px;
 }
 
 .project-content h3 {
-    margin: 0 0 9px;
+    margin: 0 0 8px;
 
-    font-size: 20px;
+    font-size: 19px;
     font-weight: 750;
-
-    letter-spacing: -0.3px;
 }
 
 .project-content p {
     margin: 0;
 
-    max-width: 330px;
+    max-width: 300px;
 
-    font-size: 13px;
+    font-size: 12.5px;
     line-height: 1.65;
 
-    opacity: 0.58;
+    opacity: 0.52;
 }
+
 
 /* LINK */
 
@@ -485,23 +458,23 @@ h1{
     align-items: center;
     gap: 8px;
 
-    margin-top: 18px;
+    margin-top: 19px;
 
     color: inherit;
     text-decoration: none;
 
-    font-size: 13px;
+    font-size: 12px;
     font-weight: 700;
 
-    opacity: 0.8;
+    opacity: 0.7;
 
     transition: 0.3s ease;
 }
 
 .project-content a i {
-    font-size: 11px;
+    font-size: 10px;
 
-    transition: transform 0.3s ease;
+    transition: 0.3s ease;
 }
 
 .project-content a:hover {
@@ -509,53 +482,29 @@ h1{
 }
 
 .project-content a:hover i {
-    transform: translateX(5px);
+    transform: translate(3px, -3px);
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
 
-@media (max-width: 900px) {
+/* RESPONSIVE */
 
+@media (max-width: 850px) {
     .project-list {
         grid-template-columns: repeat(2, 1fr);
     }
-
 }
 
-@media (max-width: 600px) {
-
+@media (max-width: 550px) {
     .projects {
-        margin-top: 55px;
-    }
-
-    .projects-title {
-        margin-bottom: 22px;
-    }
-
-    .projects-title > span {
-        width: 48px;
-        height: 48px;
-
-        border-radius: 14px;
-    }
-
-    .projects-title h2 {
-        font-size: 26px;
+        margin-top: 50px;
     }
 
     .project-list {
         grid-template-columns: 1fr;
-        gap: 15px;
     }
 
     .project {
-        min-height: 210px;
-        padding: 24px;
-        border-radius: 21px;
-    }
-
+        min-height: 205px;
     }
 }
 
@@ -633,7 +582,8 @@ footer{
         </div>
 
 
-        <!-- PROJECTS -->
+        
+      <!-- PROJECTS -->
 
 <div class="projects">
 
@@ -651,91 +601,74 @@ footer{
     <div class="project-list">
 
         <div class="project">
-
-            <div class="project-icon">
-                <i class="fa-brands fa-discord"></i>
+            <div class="project-top">
+                <div class="project-icon discord">
+                    <i class="fa-brands fa-discord"></i>
+                </div>
+                <span class="project-number">01</span>
             </div>
 
             <div class="project-content">
-
                 <h3>Dysflare</h3>
-
-                <p>
-                    A modern Discord ban appeal platform.
-                </p>
+                <p>A modern Discord ban appeal platform.</p>
 
                 <a href="https://dysflares.vercel.app"
                    target="_blank"
                    rel="noopener noreferrer">
-
                     View Project
-                    <i class="fa-solid fa-arrow-right"></i>
-
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
-
             </div>
-
         </div>
 
 
         <div class="project">
-
-            <div class="project-icon">
-                <i class="fa-solid fa-leaf"></i>
+            <div class="project-top">
+                <div class="project-icon green">
+                    <i class="fa-solid fa-leaf"></i>
+                </div>
+                <span class="project-number">02</span>
             </div>
 
             <div class="project-content">
-
                 <h3>The Green Alley</h3>
-
-                <p>
-                    Discord Servers - Góc Chill - Chơi Game
-                </p>
+                <p>Discord Servers - Góc Chill - Chơi Game</p>
 
                 <a href="https://tgadiscord.vercel.app/"
                    target="_blank"
                    rel="noopener noreferrer">
-
                     Tham Gia Ngay
-                    <i class="fa-solid fa-arrow-right"></i>
-
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
-
             </div>
-
         </div>
 
 
         <div class="project">
-
-            <div class="project-icon">
-                <i class="fa-solid fa-robot"></i>
+            <div class="project-top">
+                <div class="project-icon purple">
+                    <i class="fa-solid fa-volume-high"></i>
+                </div>
+                <span class="project-number">03</span>
             </div>
 
             <div class="project-content">
-
                 <h3>Code Sounds</h3>
-
-                <p>
-                    Code Sound is play sound when code succeeds or fails. | Vscode
-                </p>
+                <p>Play sounds when code succeeds or fails in VS Code.</p>
 
                 <a href="https://marketplace.visualstudio.com/items?itemName=neotwis.code-sound"
                    target="_blank"
                    rel="noopener noreferrer">
-
                     View Project
-                    <i class="fa-solid fa-arrow-right"></i>
-
+                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
-
             </div>
-
         </div>
 
     </div>
 
 </div>
+        
         <!-- HẾT PHẦN THÊM -->
 
 
