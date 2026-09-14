@@ -1,686 +1,402 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>NeoTwis | About Me</title>
+    <title>NeoTwis | About Me</title>
 
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link
+        rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    >
 
-<!-- THÊM -->
-<link rel="stylesheet" href="style.css">
-
-<style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-    font-family:Inter,Arial,sans-serif;
-}
-
-body{
-    background:#0f172a;
-    background:linear-gradient(135deg,#0f172a,#111827);
-    color:#fff;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    padding:40px;
-}
-
-.card{
-
-    width:100%;
-    max-width:720px;
-
-    background:#111827;
-
-    border-radius:24px;
-
-    overflow:hidden;
-
-    box-shadow:0 25px 60px rgba(0,0,0,.45);
-
-}
-
-/* Banner */
-
-.banner{
-
-    width:100%;
-
-    height:250px;
-
-    object-fit:cover;
-
-    display:block;
-
-}
-
-/* Avatar */
-
-.avatar{
-
-    width:140px;
-
-    height:140px;
-
-    border-radius:50%;
-
-    object-fit:cover;
-
-    border:6px solid #111827;
-
-    display:block;
-
-    margin:-70px auto 0;
-
-    background:#111827;
-
-}
-
-.content{
-
-    padding:20px 35px 40px;
-
-    text-align:center;
-
-}
-
-h1{
-
-    margin-top:15px;
-
-    font-size:42px;
-
-}
-
-.bio{
-
-    margin-top:10px;
-
-    color:#cbd5e1;
-
-    line-height:1.7;
-
-    font-size:17px;
-
-}
-
-/* Social */
-
-.socials{
-
-    display:flex;
-
-    justify-content:center;
-
-    gap:15px;
-
-    margin:28px 0;
-
-}
-
-.socials a{
-
-    width:50px;
-
-    height:50px;
-
-    border-radius:50%;
-
-    display:flex;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-decoration:none;
-
-    color:#fff;
-
-    background:#1f2937;
-
-    font-size:22px;
-
-    transition:.25s;
-
-}
-
-.socials a:hover{
-
-    transform:translateY(-4px);
-
-    background:#2563eb;
-
-}
-
-/* Donate */
-
-.donate{
-
-    margin-top:20px;
-
-    padding-top:30px;
-
-    border-top:1px solid rgba(255,255,255,.08);
-
-}
-
-.donate h2{
-
-    margin-bottom:12px;
-
-}
-
-.donate p{
-
-    color:#cbd5e1;
-
-    margin-bottom:22px;
-
-}
-
-.donate-btn{
-
-    display:inline-flex;
-
-    align-items:center;
-
-    justify-content:center;
-
-    gap:10px;
-
-    padding:14px 32px;
-
-    background:linear-gradient(135deg,#ff5f6d,#ff7b54);
-
-    color:#fff;
-
-    text-decoration:none;
-
-    border-radius:999px;
-
-    font-size:17px;
-
-    font-weight:600;
-
-    transition:.25s;
-
-}
-
-.donate-btn:hover{
-
-    transform:translateY(-4px);
-
-    box-shadow:0 15px 35px rgba(255,95,109,.45);
-
-}
-
-/* Feed */
-.feed-image{
-    margin-top:30px;
-}
-
-.feed-image img{
-    width:100%;
-    border-radius:18px;
-    display:block;
-    box-shadow:0 15px 35px rgba(0,0,0,.35);
-    transition:.3s;
-}
-
-.feed-image img:hover{
-    transform:scale(1.02);
-
-
-.projects {
-    width: 100%;
-    margin-top: 70px;
-}
-
-.projects-title {
-    display: flex;
-    align-items: center;
-    gap: 15px;
-    margin-bottom: 25px;
-}
-
-.projects-title > span {
-    width: 48px;
-    height: 48px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 14px;
-
-    background: rgba(255, 255, 255, 0.06);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    transition: 0.3s ease;
-}
-
-.projects-title > span i {
-    font-size: 18px;
-}
-
-.projects-title small {
-    display: block;
-
-    font-size: 10px;
-    letter-spacing: 3px;
-
-    opacity: 0.45;
-    margin-bottom: 2px;
-}
-
-.projects-title h2 {
-    margin: 0;
-    font-size: 27px;
-}
-
-
-/* PROJECT LIST */
-
-.project-list {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 16px;
-}
-
-
-/* PROJECT CARD */
-
-.project {
-    position: relative;
-
-    min-height: 225px;
-    padding: 23px;
-
-    overflow: hidden;
-
-    border-radius: 20px;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(255, 255, 255, 0.075),
-            rgba(255, 255, 255, 0.025)
-        );
-
-    border: 1px solid rgba(255, 255, 255, 0.09);
-
-    box-shadow:
-        0 15px 40px rgba(0, 0, 0, 0.15);
-
-    transition:
-        transform 0.35s ease,
-        border-color 0.35s ease,
-        box-shadow 0.35s ease;
-}
-
-.project::before {
-    content: "";
-
-    position: absolute;
-
-    width: 120px;
-    height: 120px;
-
-    top: -65px;
-    right: -65px;
-
-    border-radius: 50%;
-
-    background: rgba(255, 255, 255, 0.06);
-
-    filter: blur(20px);
-
-    transition: 0.4s ease;
-}
-
-.project:hover {
-    transform: translateY(-6px);
-
-    border-color: rgba(255, 255, 255, 0.2);
-
-    box-shadow:
-        0 20px 55px rgba(0, 0, 0, 0.25);
-}
-
-.project:hover::before {
-    transform: scale(1.5);
-}
-
-
-/* TOP */
-
-.project-top {
-    position: relative;
-    z-index: 2;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.project-number {
-    font-size: 11px;
-    font-weight: 700;
-
-    opacity: 0.25;
-}
-
-
-/* ICON */
-
-.project-icon {
-    width: 47px;
-    height: 47px;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-
-    border-radius: 14px;
-
-    background: rgba(255, 255, 255, 0.07);
-
-    border: 1px solid rgba(255, 255, 255, 0.1);
-
-    transition: 0.35s ease;
-}
-
-.project-icon i {
-    font-size: 20px;
-
-    transition: 0.35s ease;
-}
-
-.project:hover .project-icon {
-    transform: scale(1.08) rotate(-3deg);
-}
-
-.project:hover .project-icon i {
-    transform: scale(1.1);
-}
-
-.discord i {
-    color: #5865f2;
-}
-
-.green i {
-    color: #69d18b;
-}
-
-.purple i {
-    color: #a78bfa;
-}
-
-
-/* CONTENT */
-
-.project-content {
-    position: relative;
-    z-index: 2;
-
-    margin-top: 28px;
-}
-
-.project-content h3 {
-    margin: 0 0 8px;
-
-    font-size: 19px;
-    font-weight: 750;
-}
-
-.project-content p {
-    margin: 0;
-
-    max-width: 300px;
-
-    font-size: 12.5px;
-    line-height: 1.65;
-
-    opacity: 0.52;
-}
-
-
-/* LINK */
-
-.project-content a {
-    display: inline-flex;
-    align-items: center;
-    gap: 8px;
-
-    margin-top: 19px;
-
-    color: inherit;
-    text-decoration: none;
-
-    font-size: 12px;
-    font-weight: 700;
-
-    opacity: 0.7;
-
-    transition: 0.3s ease;
-}
-
-.project-content a i {
-    font-size: 10px;
-
-    transition: 0.3s ease;
-}
-
-.project-content a:hover {
-    opacity: 1;
-}
-
-.project-content a:hover i {
-    transform: translate(3px, -3px);
-}
-
-
-/* RESPONSIVE */
-
-@media (max-width: 850px) {
-    .project-list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 550px) {
-    .projects {
-        margin-top: 50px;
-    }
-
-    .project-list {
-        grid-template-columns: 1fr;
-    }
-
-    .project {
-        min-height: 205px;
-    }
-}
-
-footer{
-
-    margin-top:40px;
-
-    color:#94a3b8;
-
-    font-size:14px;
-
-}
-
-</style>
-
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div class="card">
+    <!-- BACKGROUND -->
 
-    <img src="banner.jpg" class="banner" alt="Banner">
-
-    <img src="avatar.png" class="avatar" alt="Avatar">
-
-    <div class="content">
-
-        <h1>Hoàng Huy</h1>
-
-        <p class="bio">
-            Full Stack Developer • Web Developer • Discord Developer
-        </p>
-
-        <div class="socials">
-
-            <a href="https://github.com/neotwis" target="_blank">
-                <i class="fa-brands fa-github"></i>
-            </a>
-
-            <a href="https://tiktok.com/@neotwis" target="_blank">
-                <i class="fa-brands fa-tiktok"></i>
-            </a>
-
-            <a href="https://discord.com/users/1202887366709350472" target="_blank">
-                <i class="fa-brands fa-discord"></i>
-            </a>
-
-            <a href="https://facebook.com/neootwis" target="_blank">
-                <i class="fa-brands fa-facebook"></i>
-            </a>
-
-        </div>
-
-        <div class="donate">
-
-            <h2>❤️ Donate</h2>
-
-            <p>
-                If you enjoy my work, you can support me through PlayerDuo.
-            </p>
-
-            <a class="donate-btn"
-               href="https://playerduo.net/neotwis"
-               target="_blank">
-
-                <i class="fa-solid fa-gift"></i>
-
-                Donate via PlayerDuo
-
-            </a>
-
-        </div>
-
-        <div class="feed-image">
-         <img src="feed.jpg" alt="Facebook Feed">
-        </div>
-
-
-        
-      <!-- PROJECTS -->
-
-<div class="projects">
-
-    <div class="projects-title">
-        <span>
-            <i class="fa-solid fa-code"></i>
-        </span>
-
-        <div>
-            <small>MY WORK</small>
-            <h2>Projects</h2>
-        </div>
+    <div class="background">
+        <div class="orb orb-1"></div>
+        <div class="orb orb-2"></div>
+        <div class="orb orb-3"></div>
     </div>
 
-    <div class="project-list">
 
-        <div class="project">
-            <div class="project-top">
-                <div class="project-icon discord">
+    <!-- MAIN CARD -->
+
+    <main class="card">
+
+
+        <!-- BANNER -->
+
+        <div class="banner-wrapper">
+
+            <img
+                src="banner.jpg"
+                class="banner"
+                alt="Banner"
+            >
+
+            <div class="banner-overlay"></div>
+
+        </div>
+
+
+        <!-- AVATAR -->
+
+        <div class="avatar-wrapper">
+
+            <div class="avatar-glow"></div>
+
+            <img
+                src="avatar.png"
+                class="avatar"
+                alt="Avatar"
+            >
+
+            <span class="online-dot"></span>
+
+        </div>
+
+
+        <!-- CONTENT -->
+
+        <div class="content">
+
+
+            <!-- PROFILE -->
+
+            <section class="profile">
+
+                <span class="hello">
+                    HELLO, I'M
+                </span>
+
+                <h1>Hoàng Huy</h1>
+
+                <p class="bio">
+                    Full Stack Developer • Web Developer • Discord Developer
+                </p>
+
+                <div class="profile-line"></div>
+
+            </section>
+
+
+            <!-- SOCIALS -->
+
+            <div class="socials">
+
+                <a
+                    href="https://github.com/neotwis"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="GitHub"
+                >
+                    <i class="fa-brands fa-github"></i>
+                </a>
+
+                <a
+                    href="https://tiktok.com/@neotwis"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="TikTok"
+                >
+                    <i class="fa-brands fa-tiktok"></i>
+                </a>
+
+                <a
+                    href="https://discord.com/users/1202887366709350472"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Discord"
+                >
                     <i class="fa-brands fa-discord"></i>
-                </div>
-                <span class="project-number">01</span>
-            </div>
-
-            <div class="project-content">
-                <h3>Dysflare</h3>
-                <p>A modern Discord ban appeal platform.</p>
-
-                <a href="https://dysflares.vercel.app"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    View Project
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
                 </a>
+
+                <a
+                    href="https://facebook.com/neootwis"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Facebook"
+                >
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+
             </div>
+
+
+            <!-- DONATE -->
+
+            <section class="donate">
+
+                <div class="section-icon">
+                    <i class="fa-solid fa-heart"></i>
+                </div>
+
+                <h2>Donate</h2>
+
+                <p>
+                    If you enjoy my work, you can support me through PlayerDuo.
+                </p>
+
+                <a
+                    class="donate-btn"
+                    href="https://playerduo.net/neotwis"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                >
+                    <i class="fa-solid fa-gift"></i>
+
+                    Donate via PlayerDuo
+
+                    <i class="fa-solid fa-arrow-up-right-from-square external"></i>
+                </a>
+
+            </section>
+
+
+            <!-- FEED -->
+
+            <section class="feed">
+
+                <div class="section-title">
+
+                    <span>
+                        <i class="fa-solid fa-image"></i>
+                    </span>
+
+                    <div>
+                        <small>RECENT</small>
+                        <h2>Feed</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="feed-image">
+
+                    <img
+                        src="feed.jpg"
+                        alt="Facebook Feed"
+                    >
+
+                </div>
+
+            </section>
+
+
+            <!-- PROJECTS -->
+
+            <section class="projects">
+
+
+                <!-- PROJECT HEADER -->
+
+                <div class="projects-header">
+
+                    <div class="projects-heading">
+
+                        <div class="projects-heading-icon">
+                            <i class="fa-solid fa-code"></i>
+                        </div>
+
+                        <div>
+                            <span class="projects-label">
+                                MY WORK
+                            </span>
+
+                            <h2>Projects</h2>
+                        </div>
+
+                    </div>
+
+
+                    <span class="projects-count">
+                        03 PROJECTS
+                    </span>
+
+                </div>
+
+
+                <!-- PROJECT GRID -->
+
+                <div class="project-grid">
+
+
+                    <!-- DYSFLARE -->
+
+                    <article class="project-card">
+
+                        <div class="project-card-glow"></div>
+
+                        <div class="project-top">
+
+                            <div class="project-icon discord">
+                                <i class="fa-brands fa-discord"></i>
+                            </div>
+
+                            <span class="project-number">
+                                01
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <span class="project-type">
+                                DISCORD PLATFORM
+                            </span>
+
+                            <h3>Dysflare</h3>
+
+                            <p>
+                                A modern Discord ban appeal platform
+                                designed for simple and transparent appeals.
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="https://dysflares.vercel.app"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-btn"
+                        >
+                            <span>View Project</span>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </article>
+
+
+                    <!-- THE GREEN ALLEY -->
+
+                    <article class="project-card">
+
+                        <div class="project-card-glow green"></div>
+
+                        <div class="project-top">
+
+                            <div class="project-icon green">
+                                <i class="fa-solid fa-leaf"></i>
+                            </div>
+
+                            <span class="project-number">
+                                02
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <span class="project-type">
+                                DISCORD COMMUNITY
+                            </span>
+
+                            <h3>The Green Alley</h3>
+
+                            <p>
+                                Discord community with a chill space,
+                                gaming and places to connect with friends.
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="https://tgadiscord.vercel.app/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-btn"
+                        >
+                            <span>Tham Gia Ngay</span>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </article>
+
+
+                    <!-- CODE SOUNDS -->
+
+                    <article class="project-card">
+
+                        <div class="project-card-glow purple"></div>
+
+                        <div class="project-top">
+
+                            <div class="project-icon purple">
+                                <i class="fa-solid fa-volume-high"></i>
+                            </div>
+
+                            <span class="project-number">
+                                03
+                            </span>
+
+                        </div>
+
+
+                        <div class="project-info">
+
+                            <span class="project-type">
+                                VS CODE EXTENSION
+                            </span>
+
+                            <h3>Code Sounds</h3>
+
+                            <p>
+                                Play sounds automatically when code
+                                succeeds or fails in Visual Studio Code.
+                            </p>
+
+                        </div>
+
+
+                        <a
+                            href="https://marketplace.visualstudio.com/items?itemName=neotwis.code-sound"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            class="project-btn"
+                        >
+                            <span>View Project</span>
+
+                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                        </a>
+
+                    </article>
+
+
+                </div>
+
+            </section>
+
+
+            <!-- FOOTER -->
+
+            <footer>
+
+                © 2026 NeoTwis
+
+                <span class="footer-dot">•</span>
+
+                All rights reserved.
+
+            </footer>
+
+
         </div>
 
-
-        <div class="project">
-            <div class="project-top">
-                <div class="project-icon green">
-                    <i class="fa-solid fa-leaf"></i>
-                </div>
-                <span class="project-number">02</span>
-            </div>
-
-            <div class="project-content">
-                <h3>The Green Alley</h3>
-                <p>Discord Servers - Góc Chill - Chơi Game</p>
-
-                <a href="https://tgadiscord.vercel.app/"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    Tham Gia Ngay
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-            </div>
-        </div>
-
-
-        <div class="project">
-            <div class="project-top">
-                <div class="project-icon purple">
-                    <i class="fa-solid fa-volume-high"></i>
-                </div>
-                <span class="project-number">03</span>
-            </div>
-
-            <div class="project-content">
-                <h3>Code Sounds</h3>
-                <p>Play sounds when code succeeds or fails in VS Code.</p>
-
-                <a href="https://marketplace.visualstudio.com/items?itemName=neotwis.code-sound"
-                   target="_blank"
-                   rel="noopener noreferrer">
-                    View Project
-                    <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                </a>
-            </div>
-        </div>
-
-    </div>
-
-</div>
-        
-        <!-- HẾT PHẦN THÊM -->
-
-
-        <footer>
-
-            © 2026 NeoTwis • All rights reserved.
-
-        </footer>
-
-    </div>
-
-</div>
+    </main>
 
 </body>
+
 </html>
