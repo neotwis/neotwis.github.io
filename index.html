@@ -1,402 +1,365 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>NeoTwis | About Me</title>
-
-    <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
-    >
-
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0b110e" />
+  <meta name="description" content="Trang cá nhân của neotwis — Developer, người xây dựng website, bot Discord và những dự án sáng tạo." />
+  <title>neotwis — Personal Profile</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
 </head>
-
 <body>
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
 
-    <!-- BACKGROUND -->
+  <header class="navbar">
+    <a href="#" class="brand">
+      <span class="brand-icon">n.</span>
+      <span>neotwis<span class="brand-dot">.</span></span>
+    </a>
 
-    <div class="background">
-        <div class="orb orb-1"></div>
-        <div class="orb orb-2"></div>
-        <div class="orb orb-3"></div>
-    </div>
+    <nav class="nav-links">
+      <a href="#about">Giới thiệu</a>
+      <a href="#skills">Kỹ năng</a>
+      <a href="#projects">Dự án</a>
+      <a href="#contact">Liên hệ</a>
+    </nav>
 
+    <a href="#contact" class="nav-button">
+      Kết nối <span>↗</span>
+    </a>
+  </header>
 
-    <!-- MAIN CARD -->
-
-    <main class="card">
-
-
-        <!-- BANNER -->
-
-        <div class="banner-wrapper">
-
-            <img
-                src="nenavatar4.jpg"
-                class="banner"
-                alt="Banner"
-            >
-
-            <div class="banner-overlay"></div>
-
+  <main>
+    <section class="hero container">
+      <div class="hero-content">
+        <div class="availability">
+          <span class="status-dot"></span>
+          PERSONAL PROFILE
         </div>
 
+        <p class="eyebrow">XIN CHÀO, MÌNH LÀ</p>
 
-        <!-- AVATAR -->
+        <h1>
+          neotwis<span class="gradient-text">.</span>
+          <br />
+          <span class="hero-subtitle">Create. Build. Explore.</span>
+        </h1>
 
-        <div class="avatar-wrapper">
+        <p class="hero-description">
+          Mình yêu thích công nghệ, lập trình và xây dựng những sản phẩm
+          sáng tạo trên Internet. Từ website đến bot Discord, mình luôn
+          muốn biến ý tưởng thành những thứ có thể sử dụng thực tế.
+        </p>
 
-            <div class="avatar-glow"></div>
-
-            <img
-                src="avatar2.jpeg"
-                class="avatar"
-                alt="Avatar"
-            >
-
-            <span class="online-dot"></span>
-
+        <div class="hero-actions">
+          <a href="#projects" class="button button-primary">
+            Khám phá dự án <span>↘</span>
+          </a>
+          <a href="#about" class="button button-secondary">
+            Về mình
+          </a>
         </div>
 
+        <div class="hero-meta">
+          <div>
+            <span class="meta-icon">⌘</span>
+            <span>Independent Developer</span>
+          </div>
+          <div>
+            <span class="meta-icon">🌿</span>
+            <span>Building creative things</span>
+          </div>
+        </div>
+      </div>
 
-        <!-- CONTENT -->
+      <div class="hero-visual">
+        <div class="profile-card">
+          <div class="card-top">
+            <span class="window-dots">
+              <i></i><i></i><i></i>
+            </span>
+            <span class="card-label">PROFILE / 001</span>
+          </div>
 
-        <div class="content">
+          <div class="avatar-wrap">
+            <!-- Thay avatar.png bằng ảnh đại diện của bạn -->
+            <img
+              src="avatar.png"
+              alt="Ảnh đại diện neotwis"
+              class="avatar"
+              onerror="this.style.display='none';this.nextElementSibling.style.display='grid'"
+            />
+            <div class="avatar-fallback">n.</div>
+            <span class="avatar-status"></span>
+          </div>
 
+          <h2>neotwis</h2>
+          <p class="profile-role">Developer · Creator</p>
 
-            <!-- PROFILE -->
+          <div class="profile-divider"></div>
 
-            <section class="profile">
-
-                <span class="hello">
-                    HELLO, I'M
-                </span>
-
-                <h1>Hoàng Huy</h1>
-
-                <p class="bio">
-                    Full Stack Developer • Software Engineer
-                </p>
-
-                <div class="profile-line"></div>
-
-            </section>
-
-
-            <!-- SOCIALS -->
-
-            <div class="socials">
-
-                <a
-                    href="https://github.com/neotwis"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="GitHub"
-                >
-                    <i class="fa-brands fa-github"></i>
-                </a>
-
-                <a
-                    href="https://tiktok.com/@hneoz"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="TikTok"
-                >
-                    <i class="fa-brands fa-tiktok"></i>
-                </a>
-
-                <a
-                    href="https://discord.com/users/1202887366709350472"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Discord"
-                >
-                    <i class="fa-brands fa-discord"></i>
-                </a>
-
-                <a
-                    href="https://facebook.com/neootwis"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label="Facebook"
-                >
-                    <i class="fa-brands fa-facebook"></i>
-                </a>
-
+          <div class="profile-info">
+            <div>
+              <span>FOCUS</span>
+              <strong>Web & Discord</strong>
             </div>
-
-
-            <!-- DONATE -->
-
-            <section class="donate">
-
-                <div class="section-icon">
-                    <i class="fa-solid fa-heart"></i>
-                </div>
-
-                <h2>Donate</h2>
-
-                <p>
-                    If you enjoy my work, you can support me through PlayerDuo.
-                </p>
-
-                <a
-                    class="donate-btn"
-                    href="https://playerduo.net/neotwis"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    <i class="fa-solid fa-gift"></i>
-
-                    Donate via PlayerDuo
-
-                    <i class="fa-solid fa-arrow-up-right-from-square external"></i>
-                </a>
-
-            </section>
-
-
-            <!-- FEED -->
-
-            <section class="feed">
-
-                <div class="section-title">
-
-                    <span>
-                        <i class="fa-solid fa-image"></i>
-                    </span>
-
-                    <div>
-                        <small>RECENT</small>
-                        <h2>Feed</h2>
-                    </div>
-
-                </div>
-
-
-                <div class="feed-image">
-
-                    <img
-                        src="feed.jpg"
-                        alt="Facebook Feed"
-                    >
-
-                </div>
-
-            </section>
-
-
-            <!-- PROJECTS -->
-
-            <section class="projects">
-
-
-                <!-- PROJECT HEADER -->
-
-                <div class="projects-header">
-
-                    <div class="projects-heading">
-
-                        <div class="projects-heading-icon">
-                            <i class="fa-solid fa-code"></i>
-                        </div>
-
-                        <div>
-                            <span class="projects-label">
-                                Công việc của tôi!
-                            </span>
-
-                            <h2>Projects</h2>
-                        </div>
-
-                    </div>
-
-
-                    <span class="projects-count">
-                        03 PROJECTS
-                    </span>
-
-                </div>
-
-
-                <!-- PROJECT GRID -->
-
-                <div class="project-grid">
-
-
-                    <!-- DYSFLARE -->
-
-                    <article class="project-card">
-
-                        <div class="project-card-glow"></div>
-
-                        <div class="project-top">
-
-                            <div class="project-icon discord">
-                                <i class="fa-brands fa-discord"></i>
-                            </div>
-
-                            <span class="project-number">
-                                01
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-info">
-
-                            <span class="project-type">
-                                HOSTING - VPS
-                            </span>
-
-                            <h3>Aston Cloud</h3>
-
-                            <p>
-                                Dịch vụ tạo hosting dễ dàng , nhanh và bảo mật tốt!
-                            </p>
-
-                        </div>
-
-
-                        <a
-                            href="https://astcloud.ddns.net"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-btn"
-                        >
-                            <span>Xem projects</span>
-
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-
-                    </article>
-
-
-                    <!-- THE GREEN ALLEY -->
-
-                    <article class="project-card">
-
-                        <div class="project-card-glow green"></div>
-
-                        <div class="project-top">
-
-                            <div class="project-icon green">
-                                <i class="fa-solid fa-leaf"></i>
-                            </div>
-
-                            <span class="project-number">
-                                02
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-info">
-
-                            <span class="project-type">
-                                DISCORD COMMUNITY
-                            </span>
-
-                            <h3>The Green Alley</h3>
-
-                            <p>
-                               The Green Alley là một cộng đồng Discord dành 
-                               cho những người yêu thích game, giải trí , kết 
-                               bạn và bình yên!
-                            </p>
-
-                        </div>
-
-
-                        <a
-                            href="https://tgadiscord.vercel.app/"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-btn"
-                        >
-                            <span>Tham Gia Ngay</span>
-
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-
-                    </article>
-
-
-                    <!-- CODE SOUNDS -->
-
-                    <article class="project-card">
-
-                        <div class="project-card-glow purple"></div>
-
-                        <div class="project-top">
-
-                            <div class="project-icon purple">
-                                <i class="fa-solid fa-volume-high"></i>
-                            </div>
-
-                            <span class="project-number">
-                                03
-                            </span>
-
-                        </div>
-
-
-                        <div class="project-info">
-
-                            <span class="project-type">
-                                VS CODE EXTENSION
-                            </span>
-
-                            <h3>Code Sounds</h3>
-
-                            <p>
-                                Play sounds automatically when code
-                                succeeds or fails in Visual Studio Code.
-                            </p>
-
-                        </div>
-
-
-                        <a
-                            href="https://marketplace.visualstudio.com/items?itemName=neotwis.code-sound"
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            class="project-btn"
-                        >
-                            <span>Xem projects</span>
-
-                            <i class="fa-solid fa-arrow-up-right-from-square"></i>
-                        </a>
-
-                    </article>
-
-
-                </div>
-
-            </section>
-
-
-            <!-- FOOTER -->
-
-            <footer>
-
-                © 2026 NeoTwis
-
-                <span class="footer-dot">•</span>
-
-                All rights reserved.
-
-            </footer>
-
-
+            <div>
+              <span>BASED ON</span>
+              <strong>Vietnam 🇻🇳</strong>
+            </div>
+            <div>
+              <span>INTEREST</span>
+              <strong>Code, Games, Ideas</strong>
+            </div>
+          </div>
+
+          <div class="card-bottom">
+            <span class="mini-status"></span>
+            Always learning, always building.
+          </div>
         </div>
 
-    </main>
+        <div class="floating-tag tag-code">
+          <span>&lt;/&gt;</span> Coding
+        </div>
+        <div class="floating-tag tag-green">
+          <span>✳</span> Creative mind
+        </div>
+        <div class="orbit orbit-one"></div>
+        <div class="orbit orbit-two"></div>
+      </div>
+    </section>
 
+    <section class="stats container">
+      <div class="stat-item">
+        <span class="stat-number">01</span>
+        <span class="stat-label">Luôn học hỏi</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">∞</span>
+        <span class="stat-label">Ý tưởng sáng tạo</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">DEV</span>
+        <span class="stat-label">Build in progress</span>
+      </div>
+      <div class="stat-item">
+        <span class="stat-number">VN</span>
+        <span class="stat-label">Vietnam</span>
+      </div>
+    </section>
+
+    <section id="about" class="section container">
+      <div class="section-heading">
+        <span class="section-index">01 / ABOUT</span>
+        <h2>Một chút <span class="gradient-text">về mình.</span></h2>
+        <p>Không ngừng khám phá, học hỏi và tạo ra những điều thú vị.</p>
+      </div>
+
+      <div class="about-grid">
+        <article class="glass-panel about-main">
+          <span class="panel-icon">✦</span>
+          <h3>Mình là ai?</h3>
+          <p>
+            Mình là neotwis, một người yêu thích công nghệ và phát triển
+            các dự án cá nhân. Mình thích tự tay xây dựng website,
+            thử nghiệm ý tưởng mới và tìm hiểu cách các hệ thống hoạt động.
+          </p>
+          <p>
+            Với mình, mỗi dự án là một cơ hội để học thêm điều mới,
+            cải thiện kỹ năng và tạo ra trải nghiệm tốt hơn cho người dùng.
+          </p>
+        </article>
+
+        <article class="glass-panel about-side">
+          <span class="panel-icon">◎</span>
+          <h3>Điều mình quan tâm</h3>
+          <ul class="interest-list">
+            <li><span>01</span> Lập trình và công nghệ</li>
+            <li><span>02</span> Website và giao diện UI/UX</li>
+            <li><span>03</span> Bot và cộng đồng Discord</li>
+            <li><span>04</span> Game và thế giới sáng tạo</li>
+          </ul>
+        </article>
+      </div>
+    </section>
+
+    <section id="skills" class="section container">
+      <div class="section-heading">
+        <span class="section-index">02 / SKILLS</span>
+        <h2>Công cụ mình <span class="gradient-text">sử dụng.</span></h2>
+        <p>Những công nghệ mình quan tâm và sử dụng trong các dự án.</p>
+      </div>
+
+      <div class="skills-grid">
+        <div class="skill-card">
+          <span class="skill-symbol">HTML</span>
+          <h3>HTML & CSS</h3>
+          <p>Xây dựng cấu trúc và giao diện website.</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-symbol">JS</span>
+          <h3>JavaScript</h3>
+          <p>Phát triển tính năng tương tác cho ứng dụng web.</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-symbol">Py</span>
+          <h3>Python</h3>
+          <p>Tự động hóa, thử nghiệm và phát triển công cụ.</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-symbol">C++</span>
+          <h3>C / C++ & Java</h3>
+          <p>Khám phá lập trình và tư duy giải quyết vấn đề.</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-symbol">▲</span>
+          <h3>Next.js</h3>
+          <p>Xây dựng website và ứng dụng web hiện đại.</p>
+        </div>
+        <div class="skill-card">
+          <span class="skill-symbol">GH</span>
+          <h3>GitHub</h3>
+          <p>Quản lý mã nguồn và phát triển dự án.</p>
+        </div>
+      </div>
+
+      <p class="skills-note">
+        * Danh sách thể hiện các công nghệ mình quan tâm; mức độ thành thạo
+        tùy thuộc vào từng công nghệ và dự án.
+      </p>
+    </section>
+
+    <section id="projects" class="section container">
+      <div class="section-heading">
+        <span class="section-index">03 / PROJECTS</span>
+        <h2>Một vài thứ mình <span class="gradient-text">đang xây dựng.</span></h2>
+        <p>Các dự án cá nhân thể hiện sở thích và quá trình học hỏi.</p>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card project-featured">
+          <div class="project-cover cover-green">
+            <span class="project-number">PROJECT / 01</span>
+            <span class="cover-art">🌿</span>
+            <span class="cover-caption">A place to connect.</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span>Community</span><span>Discord</span>
+            </div>
+            <h3>The Green Alley</h3>
+            <p>
+              Một cộng đồng Discord theo phong cách con hẻm xanh,
+              nơi mọi người có thể trò chuyện, thư giãn và chơi game cùng nhau.
+            </p>
+            <a href="https://tgadiscord.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+              Khám phá dự án <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-cover cover-dark">
+            <span class="project-number">PROJECT / 02</span>
+            <span class="cover-art">🎮</span>
+            <span class="cover-caption">A tiny virtual world.</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span>Game</span><span>Web</span>
+            </div>
+            <h3>The Green Alley Activity</h3>
+            <p>
+              Thế giới ảo nhỏ với phong cách pixel art, hướng đến trải nghiệm
+              thư giãn và tương tác trong cộng đồng Discord.
+            </p>
+            <a href="https://hoatdong-tgadiscord.vercel.app/" target="_blank" rel="noopener noreferrer" class="project-link">
+              Chơi thử <span>↗</span>
+            </a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-cover cover-purple">
+            <span class="project-number">PROJECT / 03</span>
+            <span class="cover-art">⌘</span>
+            <span class="cover-caption">Tools for creators.</span>
+          </div>
+          <div class="project-body">
+            <div class="project-tags">
+              <span>Web</span><span>Experiments</span>
+            </div>
+            <h3>SandboxHub</h3>
+            <p>
+              Ý tưởng về một nơi khám phá các dự án, nền tảng và mẫu giao diện
+              thú vị trên Internet.
+            </p>
+            <span class="project-status">
+              <span></span> Đang phát triển ý tưởng
+            </span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="quote-section container">
+      <span class="quote-mark">“</span>
+      <p>
+        Không cần bắt đầu với một điều gì đó thật lớn.
+        Chỉ cần bắt đầu, học hỏi và làm tốt hơn mỗi ngày.
+      </p>
+      <span class="quote-author">— MY PERSONAL PHILOSOPHY</span>
+    </section>
+
+    <section id="contact" class="section container contact-section">
+      <div class="contact-panel">
+        <div>
+          <span class="section-index">04 / CONTACT</span>
+          <h2>Cùng tạo ra điều <span class="gradient-text">thú vị.</span></h2>
+          <p>
+            Có ý tưởng, dự án hay đơn giản là muốn trò chuyện?
+            Hãy kết nối với mình nhé.
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <a
+            href="https://github.com/neotwis"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button button-primary"
+          >
+            GitHub <span>↗</span>
+          </a>
+          <a
+            href="https://discord.gg/VmM4B6rm8c"
+            target="_blank"
+            rel="noopener noreferrer"
+            class="button button-secondary"
+          >
+            Discord <span>↗</span>
+          </a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer container">
+    <a href="#" class="brand">
+      <span class="brand-icon">n.</span>
+      <span>neotwis<span class="brand-dot">.</span></span>
+    </a>
+    <p>Designed with curiosity. Built with passion.</p>
+    <span class="footer-copy">© <span id="year"></span> neotwis</span>
+  </footer>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
 </body>
-
 </html>
