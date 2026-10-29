@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#0a0a0a" />
+
+  <title>Projects — Neotwis</title>
+  <meta
+    name="description"
+    content="Khám phá các dự án, thư viện mã nguồn mở và công cụ được phát triển bởi Neotwis."
+  />
+
+  <link rel="icon" href="/favicon.ico" />
+  <link rel="stylesheet" href="project.css" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+    rel="stylesheet"
+  />
+
+  <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+  <div class="background-glow"></div>
+
+  <header class="navbar">
+    <a href="/" class="brand">
+      <span class="brand-icon">&lt;/&gt;</span>
+      <span>neotwis<span class="brand-dot">.</span></span>
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="/">Home</a>
+      <a href="/project" class="active">Projects</a>
+      <a href="https://github.com/neotwis" target="_blank" rel="noopener noreferrer">
+        GitHub <i data-lucide="arrow-up-right"></i>
+      </a>
+    </nav>
+
+    <button class="menu-toggle" id="menuToggle" aria-label="Mở menu">
+      <i data-lucide="menu"></i>
+    </button>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="eyebrow">
+        <span class="status-dot"></span>
+        MY WORK & PROJECTS
+      </div>
+
+      <h1>
+        Things I've <span class="gradient-text">built.</span>
+      </h1>
+
+      <p class="hero-description">
+        Những dự án, thư viện mã nguồn mở và công cụ mình đã xây dựng.
+        Luôn học hỏi, thử nghiệm và biến ý tưởng thành sản phẩm thực tế.
+      </p>
+
+      <div class="hero-actions">
+        <a
+          class="button button-primary"
+          href="https://github.com/neotwis"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <i data-lucide="github"></i>
+          GitHub Profile
+          <i data-lucide="arrow-up-right"></i>
+        </a>
+
+        <a href="#projects" class="button button-secondary">
+          Khám phá dự án
+          <i data-lucide="arrow-down"></i>
+        </a>
+      </div>
+
+      <div class="hero-decoration" aria-hidden="true">
+        <span class="deco-line"></span>
+        <span class="deco-square"></span>
+        <span class="deco-circle"></span>
+      </div>
+    </section>
+
+    <section class="projects-section" id="projects">
+      <div class="section-heading">
+        <div>
+          <span class="section-label">PORTFOLIO</span>
+          <h2>Featured projects<span class="green-dot">.</span></h2>
+          <p>Một số dự án tiêu biểu trong quá trình phát triển của mình.</p>
+        </div>
+
+        <a
+          href="https://github.com/neotwis?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="all-projects"
+        >
+          Tất cả repositories
+          <i data-lucide="arrow-up-right"></i>
+        </a>
+      </div>
+
+      <div class="filters" role="group" aria-label="Lọc dự án">
+        <button class="filter active" data-filter="all">All</button>
+        <button class="filter" data-filter="web">Web</button>
+        <button class="filter" data-filter="library">Libraries</button>
+        <button class="filter" data-filter="discord">Discord</button>
+        <button class="filter" data-filter="game">Games</button>
+      </div>
+
+      <div class="project-grid">
+        <!-- Project 1 -->
+        <article class="project-card" data-category="web discord game">
+          <div class="project-cover cover-alley">
+            <div class="cover-glow"></div>
+            <div class="cover-content">
+              <span class="cover-symbol">TGA</span>
+              <span class="cover-subtitle">A place to chill.</span>
+            </div>
+            <span class="project-type">Community</span>
+          </div>
+
+          <div class="project-body">
+            <div class="project-title-row">
+              <h3>The Green Alley</h3>
+              <span class="project-status">
+                <span class="status-dot"></span>
+                Active
+              </span>
+            </div>
+
+            <p class="project-description">
+              Cộng đồng Discord Việt Nam kết hợp giải trí, gaming và
+              trải nghiệm mô phỏng con hẻm nhỏ 2D.
+            </p>
+
+            <div class="tech-stack">
+              <span>Next.js</span>
+              <span>React</span>
+              <span>TypeScript</span>
+              <span>Phaser</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/neotwis" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="github"></i> Source
+              </a>
+              <a href="https://tgadiscord.vercel.app" target="_blank" rel="noopener noreferrer">
+                Live Demo <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card" data-category="library">
+          <div class="project-cover cover-library">
+            <div class="cover-grid"></div>
+            <div class="library-icon">
+              <i data-lucide="boxes"></i>
+            </div>
+            <span class="project-type">Open Source</span>
+          </div>
+
+          <div class="project-body">
+            <div class="project-title-row">
+              <h3>cozy-world</h3>
+              <span class="project-status">
+                <span class="status-dot"></span>
+                Open Source
+              </span>
+            </div>
+
+            <p class="project-description">
+              Thư viện TypeScript tạo thế giới theo phương pháp
+              procedural generation với kết quả có thể tái tạo bằng seed.
+            </p>
+
+            <div class="tech-stack">
+              <span>TypeScript</span>
+              <span>npm</span>
+              <span>Vitest</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/neotwis/cozy-world" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="github"></i> Source
+              </a>
+              <a href="https://www.npmjs.com/search?q=cozy-world" target="_blank" rel="noopener noreferrer">
+                npm <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 3 -->
+        <article class="project-card" data-category="discord">
+          <div class="project-cover cover-discord">
+            <div class="discord-orbit orbit-one"></div>
+            <div class="discord-orbit orbit-two"></div>
+            <div class="discord-icon">
+              <i data-lucide="bot"></i>
+            </div>
+            <span class="project-type">Discord Bots</span>
+          </div>
+
+          <div class="project-body">
+            <div class="project-title-row">
+              <h3>TGA Bots</h3>
+              <span class="project-status">
+                <span class="status-dot"></span>
+                Community
+              </span>
+            </div>
+
+            <p class="project-description">
+              Các bot Discord phục vụ giải trí và tạo trải nghiệm
+              tương tác cho cộng đồng The Green Alley.
+            </p>
+
+            <div class="tech-stack">
+              <span>JavaScript</span>
+              <span>Discord API</span>
+              <span>Node.js</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/neotwis/tgabots" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="github"></i> Source
+              </a>
+              <a href="https://tgadiscord.vercel.app/bots" target="_blank" rel="noopener noreferrer">
+                Bot Page <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4 -->
+        <article class="project-card" data-category="game web">
+          <div class="project-cover cover-game">
+            <div class="pixel-scene">
+              <span class="pixel-sun"></span>
+              <span class="pixel-house house-one"></span>
+              <span class="pixel-house house-two"></span>
+              <span class="pixel-tree tree-one"></span>
+              <span class="pixel-tree tree-two"></span>
+              <span class="pixel-road"></span>
+            </div>
+            <span class="project-type">Game / Activity</span>
+          </div>
+
+          <div class="project-body">
+            <div class="project-title-row">
+              <h3>Góc Hẻm Nhỏ</h3>
+              <span class="project-status">
+                <span class="status-dot"></span>
+                In Development
+              </span>
+            </div>
+
+            <p class="project-description">
+              Trải nghiệm mô phỏng cuộc sống trong con hẻm Việt Nam,
+              nơi người chơi có thể khám phá và tương tác cùng bạn bè.
+            </p>
+
+            <div class="tech-stack">
+              <span>Phaser 3</span>
+              <span>React</span>
+              <span>Supabase</span>
+              <span>Ably</span>
+            </div>
+
+            <div class="project-links">
+              <a href="https://github.com/neotwis/hoatdong-tgadiscord" target="_blank" rel="noopener noreferrer">
+                <i data-lucide="github"></i> Source
+              </a>
+              <a href="https://hoatdong-tgadiscord.vercel.app" target="_blank" rel="noopener noreferrer">
+                Play / Demo <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <div class="github-cta">
+        <div class="cta-icon">
+          <i data-lucide="github"></i>
+        </div>
+        <div class="cta-text">
+          <h3>Want to see more?</h3>
+          <p>Khám phá thêm các dự án và đóng góp mã nguồn mở của mình.</p>
+        </div>
+        <a
+          href="https://github.com/neotwis?tab=repositories"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="button button-primary"
+        >
+          Explore GitHub
+          <i data-lucide="arrow-up-right"></i>
+        </a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <a href="/" class="brand footer-brand">
+      <span class="brand-icon">&lt;/&gt;</span>
+      <span>neotwis<span class="brand-dot">.</span></span>
+    </a>
+
+    <p>Designed & built with care by Neotwis.</p>
+
+    <a
+      href="https://github.com/neotwis"
+      target="_blank"
+      rel="noopener noreferrer"
+      aria-label="GitHub"
+      class="footer-social"
+    >
+      <i data-lucide="github"></i>
+    </a>
+  </footer>
+
+  <script>
+    lucide.createIcons();
+
+    // Mobile navigation
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.innerHTML = isOpen
+        ? '<i data-lucide="x"></i>'
+        : '<i data-lucide="menu"></i>';
+      lucide.createIcons();
+    });
+
+    // Project filtering
+    const filterButtons = document.querySelectorAll(".filter");
+    const projectCards = document.querySelectorAll(".project-card");
+
+    filterButtons.forEach((button) => {
+      button.addEventListener("click", () => {
+        filterButtons.forEach((item) => item.classList.remove("active"));
+        button.classList.add("active");
+
+        const filter = button.dataset.filter;
+
+        projectCards.forEach((card) => {
+          const categories = card.dataset.category.split(" ");
+          const visible = filter === "all" || categories.includes(filter);
+
+          card.hidden = !visible;
+        });
+      });
+    });
+  </script>
+</body>
+</html>
