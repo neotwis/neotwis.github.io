@@ -7,6 +7,32 @@
   <meta name="description" content="Trang cá nhân của neotwis — Developer, người xây dựng website, bot Discord và những dự án sáng tạo." />
   <title>neotwis — My Profile</title>
   <link rel="stylesheet" href="style.css" />
+
+  <style>
+    .projects-more {
+      display: flex;
+      justify-content: center;
+      margin-top: 30px;
+    }
+
+    .projects-more .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 13px 22px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .projects-more .button:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 24px rgba(110, 210, 130, 0.18);
+    }
+  </style>
+
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet" />
@@ -86,7 +112,6 @@
           </div>
 
           <div class="avatar-wrap">
-            <!-- Thay avatar.png bằng ảnh đại diện của bạn -->
             <img
               src="avatar.png"
               alt="Ảnh đại diện neotwis"
@@ -165,7 +190,7 @@
           <span class="panel-icon">✦</span>
           <h3>Mình là ai?</h3>
           <p>
-            Mình là neotwis, tên thật là Hoàng Huy một người yêu thích công nghệ 
+            Mình là neotwis, tên thật là Hoàng Huy một người yêu thích công nghệ
             và phát triển các dự án cá nhân. Mình thích tự tay xây dựng website, tự
             thử nghiệm ý tưởng mới và tìm hiểu cách các hệ thống hoạt động.
           </p>
@@ -305,6 +330,13 @@
           </div>
         </article>
       </div>
+
+      <!-- Nút xem thêm dự án -->
+      <div class="projects-more">
+        <a href="/project" class="button button-primary">
+          Xem thêm dự án <span aria-hidden="true">↗</span>
+        </a>
+      </div>
     </section>
 
     <section class="quote-section container">
@@ -328,44 +360,19 @@
         </div>
 
         <div class="contact-actions">
-          <a
-            href="https://github.com/neotwis"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button button-primary"
-          >
+          <a href="https://github.com/neotwis" target="_blank" rel="noopener noreferrer" class="button button-primary">
             GitHub <span>↗</span>
           </a>
-          <a
-            href="https://discord.gg/users/1202887366709350472"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button button-secondary"
-          >
+          <a href="https://discord.gg/users/1202887366709350472" target="_blank" rel="noopener noreferrer" class="button button-secondary">
             Discord <span>↗</span>
           </a>
-           <a
-            href="https://www.facebook.com/neootwis"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button button-secondary"
-          >
+          <a href="https://www.facebook.com/neootwis" target="_blank" rel="noopener noreferrer" class="button button-secondary">
             Facebook <span>↗</span>
           </a>
-           <a
-            href="https://tiktok.com/@hneoz"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button button-secondary"
-          >
-            Tiktok <span>↗</span>
+          <a href="https://tiktok.com/@hneoz" target="_blank" rel="noopener noreferrer" class="button button-secondary">
+            TikTok <span>↗</span>
           </a>
-          <a
-            href="mailto:huyvohoang97@gmail.com"
-            target="_blank"
-            rel="noopener noreferrer"
-            class="button button-secondary"
-          >
+          <a href="mailto:huyvohoang97@gmail.com" class="button button-secondary">
             Email <span>↗</span>
           </a>
         </div>
