@@ -22,10 +22,120 @@
   />
 
   <script src="https://unpkg.com/lucide@latest"></script>
+
+  <style>
+    /* Image project covers */
+    .project-cover.cover-image {
+      position: relative;
+      overflow: hidden;
+      background: #101812;
+    }
+
+    .project-cover.cover-image > img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      min-height: 220px;
+      object-fit: cover;
+      object-position: center;
+      transition: transform .5s ease;
+    }
+
+    .project-card:hover .cover-image > img {
+      transform: scale(1.04);
+    }
+
+    /* Cobble cover */
+    .cover-cobble {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 220px;
+      overflow: hidden;
+      isolation: isolate;
+      background: radial-gradient(
+        circle at 50% 35%,
+        #29483c 0,
+        #14251f 48%,
+        #0b110f 100%
+      );
+    }
+
+    .cover-cobble::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      z-index: -1;
+      background: linear-gradient(
+        135deg,
+        rgba(10, 18, 14, .12),
+        rgba(5, 10, 8, .72)
+      );
+    }
+
+    .cover-cobble .cover-screenshot {
+      position: absolute;
+      width: 67%;
+      max-height: 82%;
+      object-fit: cover;
+      border: 1px solid rgba(255,255,255,.2);
+      border-radius: 10px;
+      box-shadow: 0 16px 45px rgba(0,0,0,.45);
+      background: #111;
+      transition: transform .4s ease;
+    }
+
+    .cover-cobble .cobble-home {
+      left: 8%;
+      top: 12%;
+      transform: rotate(-5deg);
+    }
+
+    .cover-cobble .cobble-settings {
+      right: 5%;
+      bottom: 7%;
+      width: 57%;
+      transform: rotate(5deg);
+    }
+
+    .project-card:hover .cobble-home {
+      transform: rotate(-3deg) scale(1.03);
+    }
+
+    .project-card:hover .cobble-settings {
+      transform: rotate(3deg) scale(1.03);
+    }
+
+    .cover-cobble .project-type {
+      z-index: 2;
+    }
+
+    /* Prevent hidden projects from appearing */
+    .project-card[hidden] {
+      display: none !important;
+    }
+
+    @media (max-width: 520px) {
+      .cover-cobble {
+        min-height: 190px;
+      }
+
+      .cover-cobble .cover-screenshot {
+        width: 72%;
+      }
+
+      .cover-cobble .cobble-settings {
+        width: 60%;
+      }
+    }
+  </style>
 </head>
+
 <body>
   <div class="background-glow"></div>
 
+  <!-- Navbar -->
   <header class="navbar">
     <a href="/" class="brand">
       <span class="brand-icon">&lt;/&gt;</span>
@@ -35,7 +145,11 @@
     <nav class="nav-links" id="navLinks">
       <a href="/">Home</a>
       <a href="/project" class="active">Projects</a>
-      <a href="https://github.com/neotwis" target="_blank" rel="noopener noreferrer">
+      <a
+        href="https://github.com/neotwis"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
         GitHub <i data-lucide="arrow-up-right"></i>
       </a>
     </nav>
@@ -46,6 +160,7 @@
   </header>
 
   <main>
+    <!-- Hero -->
     <section class="hero">
       <div class="eyebrow">
         <span class="status-dot"></span>
@@ -86,6 +201,7 @@
       </div>
     </section>
 
+    <!-- Projects -->
     <section class="projects-section" id="projects">
       <div class="section-heading">
         <div>
@@ -105,29 +221,33 @@
         </a>
       </div>
 
+      <!-- Filters -->
       <div class="filters" role="group" aria-label="Lọc dự án">
         <button class="filter active" data-filter="all">All</button>
         <button class="filter" data-filter="web">Web</button>
+        <button class="filter" data-filter="browser">Browser</button>
         <button class="filter" data-filter="library">Libraries</button>
         <button class="filter" data-filter="discord">Discord</button>
         <button class="filter" data-filter="game">Games</button>
       </div>
 
       <div class="project-grid">
-        <!-- Project 1 -->
+
+        <!-- Project 1: The Green Alley -->
         <article class="project-card" data-category="web discord game">
-          <div class="project-cover cover-alley">
-            <div class="cover-glow"></div>
-            <div class="cover-content">
-              <span class="cover-symbol">TGA</span>
-              <span class="cover-subtitle">A place to chill.</span>
-            </div>
+          <div class="project-cover cover-image">
+            <img
+              src="https://tgadiscord.vercel.app/hero.png"
+              alt="The Green Alley Preview"
+              loading="lazy"
+            />
             <span class="project-type">Community</span>
           </div>
 
           <div class="project-body">
             <div class="project-title-row">
               <h3>The Green Alley</h3>
+
               <span class="project-status">
                 <span class="status-dot"></span>
                 Active
@@ -151,29 +271,41 @@
             </div>
 
             <div class="project-links">
-              <a href="https://github.com/neotwis" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/neotwis"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i data-lucide="github"></i> Source
               </a>
-              <a href="https://tgadiscord.vercel.app" target="_blank" rel="noopener noreferrer">
+
+              <a
+                href="https://tgadiscord.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Live Demo <i data-lucide="arrow-up-right"></i>
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Project 2 -->
+        <!-- Project 2: cozy-world -->
         <article class="project-card" data-category="library">
           <div class="project-cover cover-library">
             <div class="cover-grid"></div>
+
             <div class="library-icon">
               <i data-lucide="boxes"></i>
             </div>
+
             <span class="project-type">Open Source</span>
           </div>
 
           <div class="project-body">
             <div class="project-title-row">
               <h3>cozy-world</h3>
+
               <span class="project-status">
                 <span class="status-dot"></span>
                 Open Source
@@ -192,30 +324,105 @@
             </div>
 
             <div class="project-links">
-              <a href="https://github.com/neotwis/cozy-world" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/neotwis/cozy-world"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i data-lucide="github"></i> Source
               </a>
-              <a href="https://www.npmjs.com/package/cozy-world" target="_blank" rel="noopener noreferrer">
+
+              <a
+                href="https://www.npmjs.com/package/cozy-world"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 npm <i data-lucide="arrow-up-right"></i>
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Project 3 -->
+        <!-- Project 3: Cobble -->
+        <article class="project-card" data-category="browser">
+          <div class="project-cover cover-cobble">
+
+            <img
+              class="cover-screenshot cobble-home"
+              src="https://raw.githubusercontent.com/neotwis/cobble/main/media/trangchu.png"
+              alt="Cobble Homepage"
+              loading="lazy"
+            />
+
+            <img
+              class="cover-screenshot cobble-settings"
+              src="https://raw.githubusercontent.com/neotwis/cobble/main/media/settings.png"
+              alt="Cobble Settings"
+              loading="lazy"
+            />
+
+            <span class="project-type">Browser Extension</span>
+          </div>
+
+          <div class="project-body">
+            <div class="project-title-row">
+              <h3>Cobble</h3>
+
+              <span class="project-status">
+                <span class="status-dot"></span>
+                Published
+              </span>
+            </div>
+
+            <p class="project-description">
+              Tiện ích mở rộng trình duyệt mang đến trải nghiệm duyệt web
+              đơn giản, cá nhân hóa với trang New Tab và các tùy chỉnh riêng.
+            </p>
+
+            <div class="tech-stack">
+              <span>JavaScript</span>
+              <span>Manifest V3</span>
+              <span>Vite</span>
+              <span>Browser Extension</span>
+            </div>
+
+            <div class="project-links">
+              <a
+                href="https://github.com/neotwis/cobble"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <i data-lucide="github"></i> Source
+              </a>
+
+              <a
+                href="https://microsoftedge.microsoft.com/addons/detail/cobble/lgflemjobmkkklccegfggpejiojolmpe"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Edge Add-ons <i data-lucide="arrow-up-right"></i>
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Project 4: TGA Bots -->
         <article class="project-card" data-category="discord">
           <div class="project-cover cover-discord">
             <div class="discord-orbit orbit-one"></div>
             <div class="discord-orbit orbit-two"></div>
+
             <div class="discord-icon">
               <i data-lucide="bot"></i>
             </div>
+
             <span class="project-type">Discord Bots</span>
           </div>
 
           <div class="project-body">
             <div class="project-title-row">
               <h3>TGA Bots</h3>
+
               <span class="project-status">
                 <span class="status-dot"></span>
                 Community
@@ -234,33 +441,40 @@
             </div>
 
             <div class="project-links">
-              <a href="https://github.com/neotwis/tgabots" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/neotwis/tgabots"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i data-lucide="github"></i> Source
               </a>
-              <a href="https://tgadiscord.vercel.app/bots" target="_blank" rel="noopener noreferrer">
+
+              <a
+                href="https://tgadiscord.vercel.app/bots"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Bot Page <i data-lucide="arrow-up-right"></i>
               </a>
             </div>
           </div>
         </article>
 
-        <!-- Project 4 -->
+        <!-- Project 5: Góc Hẻm Nhỏ -->
         <article class="project-card" data-category="game web">
-          <div class="project-cover cover-game">
-            <div class="pixel-scene">
-              <span class="pixel-sun"></span>
-              <span class="pixel-house house-one"></span>
-              <span class="pixel-house house-two"></span>
-              <span class="pixel-tree tree-one"></span>
-              <span class="pixel-tree tree-two"></span>
-              <span class="pixel-road"></span>
-            </div>
+          <div class="project-cover cover-image">
+            <img
+              src="/media/goc-hem-nho.png"
+              alt="Góc Hẻm Nhỏ Preview"
+              loading="lazy"
+            />
             <span class="project-type">Game / Activity</span>
           </div>
 
           <div class="project-body">
             <div class="project-title-row">
               <h3>Góc Hẻm Nhỏ</h3>
+
               <span class="project-status">
                 <span class="status-dot"></span>
                 In Development
@@ -280,25 +494,40 @@
             </div>
 
             <div class="project-links">
-              <a href="https://github.com/neotwis/hoatdong-tgadiscord" target="_blank" rel="noopener noreferrer">
+              <a
+                href="https://github.com/neotwis/hoatdong-tgadiscord"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 <i data-lucide="github"></i> Source
               </a>
-              <a href="https://hoatdong-tgadiscord.vercel.app" target="_blank" rel="noopener noreferrer">
+
+              <a
+                href="https://hoatdong-tgadiscord.vercel.app"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
                 Play / Demo <i data-lucide="arrow-up-right"></i>
               </a>
             </div>
           </div>
         </article>
+
       </div>
 
+      <!-- GitHub CTA -->
       <div class="github-cta">
         <div class="cta-icon">
           <i data-lucide="github"></i>
         </div>
+
         <div class="cta-text">
           <h3>Want to see more?</h3>
-          <p>Khám phá thêm các dự án và đóng góp mã nguồn mở của mình.</p>
+          <p>
+            Khám phá thêm các dự án và đóng góp mã nguồn mở của mình.
+          </p>
         </div>
+
         <a
           href="https://github.com/neotwis?tab=repositories"
           target="_blank"
@@ -312,6 +541,7 @@
     </section>
   </main>
 
+  <!-- Footer -->
   <footer class="footer">
     <a href="/" class="brand footer-brand">
       <span class="brand-icon">&lt;/&gt;</span>
@@ -332,6 +562,7 @@
   </footer>
 
   <script>
+    // Initialize Lucide icons
     lucide.createIcons();
 
     // Mobile navigation
@@ -340,10 +571,13 @@
 
     menuToggle.addEventListener("click", () => {
       const isOpen = navLinks.classList.toggle("open");
+
       menuToggle.setAttribute("aria-expanded", String(isOpen));
+
       menuToggle.innerHTML = isOpen
         ? '<i data-lucide="x"></i>'
         : '<i data-lucide="menu"></i>';
+
       lucide.createIcons();
     });
 
@@ -353,14 +587,19 @@
 
     filterButtons.forEach((button) => {
       button.addEventListener("click", () => {
-        filterButtons.forEach((item) => item.classList.remove("active"));
+        filterButtons.forEach((item) => {
+          item.classList.remove("active");
+        });
+
         button.classList.add("active");
 
         const filter = button.dataset.filter;
 
         projectCards.forEach((card) => {
           const categories = card.dataset.category.split(" ");
-          const visible = filter === "all" || categories.includes(filter);
+
+          const visible =
+            filter === "all" || categories.includes(filter);
 
           card.hidden = !visible;
         });
