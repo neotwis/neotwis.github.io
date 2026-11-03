@@ -48,19 +48,26 @@
       right: 20px;
       bottom: 20px;
       z-index: 999;
-      display: flex;
-      align-items: center;
-      gap: 14px;
+      width: 340px;
       max-width: calc(100vw - 40px);
-      padding: 10px 18px 10px 10px;
-      border-radius: 999px;
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      padding: 12px 16px 12px 12px;
+      border-radius: 22px;
       border: 1px solid rgba(110, 210, 130, 0.25);
-      background: rgba(11, 17, 14, 0.82);
+      background: rgba(11, 17, 14, 0.86);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 10px 34px rgba(0, 0, 0, 0.4);
       color: #e8f5ea;
       font-family: "Be Vietnam Pro", sans-serif;
+    }
+
+    .music-main {
+      display: flex;
+      align-items: center;
+      gap: 12px;
     }
 
     .music-toggle {
@@ -92,16 +99,51 @@
     }
 
     .music-meta {
+      flex: 1;
+      min-width: 0;
       display: flex;
       flex-direction: column;
       gap: 3px;
-      min-width: 0;
+      padding: 0;
+      border: 0;
+      background: none;
+      color: inherit;
+      font: inherit;
+      text-align: left;
+      cursor: pointer;
     }
 
     .music-title {
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-size: 0.82rem;
       font-weight: 600;
       line-height: 1.2;
+    }
+
+    .music-title-text {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .music-info-icon {
+      flex-shrink: 0;
+      display: inline-grid;
+      place-items: center;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      font-size: 0.65rem;
+      font-style: italic;
+      font-weight: 700;
+      color: #6ed282;
+      border: 1px solid rgba(110, 210, 130, 0.5);
+    }
+
+    .music-meta:hover .music-info-icon {
+      background: rgba(110, 210, 130, 0.15);
     }
 
     .music-credit {
@@ -116,16 +158,217 @@
     }
 
     .music-volume {
-      width: 70px;
+      width: 64px;
       accent-color: #6ed282;
       cursor: pointer;
+    }
+
+    /* ----- Thanh tiến trình ----- */
+    .music-progress {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      padding-left: 4px;
+    }
+
+    .music-time {
+      flex-shrink: 0;
+      min-width: 34px;
+      font-size: 0.7rem;
+      font-variant-numeric: tabular-nums;
+      opacity: 0.8;
+    }
+
+    .music-time.end {
+      text-align: right;
+    }
+
+    .music-seek {
+      --p: 0%;
+      flex: 1;
+      min-width: 0;
+      height: 14px;
+      margin: 0;
+      background: transparent;
+      cursor: pointer;
+      -webkit-appearance: none;
+      appearance: none;
+    }
+
+    .music-seek::-webkit-slider-runnable-track {
+      height: 4px;
+      border-radius: 4px;
+      background: linear-gradient(to right, #6ed282 var(--p), rgba(255, 255, 255, 0.15) var(--p));
+    }
+
+    .music-seek::-moz-range-track {
+      height: 4px;
+      border-radius: 4px;
+      background: rgba(255, 255, 255, 0.15);
+    }
+
+    .music-seek::-moz-range-progress {
+      height: 4px;
+      border-radius: 4px;
+      background: #6ed282;
+    }
+
+    .music-seek::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 12px;
+      height: 12px;
+      margin-top: -4px;
+      border-radius: 50%;
+      border: 0;
+      background: #e8f5ea;
+      box-shadow: 0 0 0 3px rgba(110, 210, 130, 0.25);
+    }
+
+    .music-seek::-moz-range-thumb {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 0;
+      background: #e8f5ea;
+      box-shadow: 0 0 0 3px rgba(110, 210, 130, 0.25);
+    }
+
+    /* ----- Bảng thông tin chi tiết ----- */
+    .music-details {
+      position: absolute;
+      right: 0;
+      bottom: calc(100% + 12px);
+      width: 100%;
+      padding: 18px;
+      border-radius: 18px;
+      border: 1px solid rgba(110, 210, 130, 0.25);
+      background: rgba(11, 17, 14, 0.94);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      box-shadow: 0 14px 40px rgba(0, 0, 0, 0.5);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(8px);
+      transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    }
+
+    .music-details.open {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .details-head {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+
+    .details-label {
+      font-size: 0.65rem;
+      letter-spacing: 0.12em;
+      color: #6ed282;
+      font-weight: 700;
+    }
+
+    .details-close {
+      flex-shrink: 0;
+      width: 26px;
+      height: 26px;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      color: #e8f5ea;
+      background: rgba(255, 255, 255, 0.08);
+    }
+
+    .details-close:hover {
+      background: rgba(255, 255, 255, 0.16);
+    }
+
+    .details-title {
+      margin: 0 0 4px;
+      font-size: 1rem;
+      line-height: 1.35;
+      word-break: break-word;
+    }
+
+    .details-channel {
+      margin: 0 0 14px;
+      font-size: 0.78rem;
+      opacity: 0.7;
+    }
+
+    .details-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 0 0 14px;
+      padding: 12px 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+
+    .details-row {
+      display: flex;
+      flex-direction: column;
+      gap: 2px;
+      font-size: 0.78rem;
+      line-height: 1.5;
+    }
+
+    .details-row dt {
+      font-size: 0.65rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      opacity: 0.55;
+    }
+
+    .details-row dd {
+      margin: 0;
+    }
+
+    .details-row b {
+      color: #6ed282;
+    }
+
+    .details-link {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 10px 14px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-size: 0.82rem;
+      font-weight: 600;
+      color: #0b110e;
+      background: #6ed282;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .details-link:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 22px rgba(110, 210, 130, 0.25);
+    }
+
+    .details-thanks {
+      margin: 12px 0 0;
+      font-size: 0.7rem;
+      line-height: 1.5;
+      opacity: 0.6;
+      text-align: center;
     }
 
     @media (max-width: 560px) {
       .music-widget {
         right: 12px;
         bottom: 12px;
-        gap: 10px;
+        width: calc(100vw - 24px);
+        max-width: none;
       }
       .music-volume {
         display: none;
@@ -495,22 +738,82 @@
   </div>
 
   <div class="music-widget" id="music-widget">
-    <button class="music-toggle" id="music-toggle" type="button" aria-label="Phát nhạc">▶</button>
 
-    <div class="music-meta">
-      <span class="music-title" id="music-title">♪ Bấm để nghe nhạc</span>
-      <span class="music-credit">Đã xin phép <b>Jacketkat</b> và <b>LUNY Remix</b></span>
+    <!-- Bảng thông tin chi tiết -->
+    <div class="music-details" id="music-details" role="dialog" aria-label="Thông tin bài nhạc">
+      <div class="details-head">
+        <span class="details-label">♪ NOW PLAYING</span>
+        <button class="details-close" id="details-close" type="button" aria-label="Đóng">✕</button>
+      </div>
+
+      <h4 class="details-title" id="details-title">Đang tải thông tin...</h4>
+      <p class="details-channel" id="details-channel">—</p>
+
+      <dl class="details-list">
+        <div class="details-row">
+          <dt>Nguồn</dt>
+          <dd>YouTube — bài nhạc được đăng bởi chính nghệ sĩ.</dd>
+        </div>
+        <div class="details-row">
+          <dt>Bản quyền</dt>
+          <dd>Thuộc về <b>Jacketkat</b> và <b>LUNY Remix</b>.</dd>
+        </div>
+        <div class="details-row">
+          <dt>Quyền sử dụng</dt>
+          <dd>Đã xin phép <b>Jacketkat</b> và <b>LUNY Remix</b> trước khi sử dụng trên trang này.</dd>
+        </div>
+      </dl>
+
+      <a
+        class="details-link"
+        href="https://www.youtube.com/watch?v=o2WqugLvzZM"
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        Nghe trên YouTube <span aria-hidden="true">↗</span>
+      </a>
+
+      <p class="details-thanks">
+        Cảm ơn các nghệ sĩ đã cho phép mình sử dụng bản nhạc này. Hãy ủng hộ họ nhé 💚
+      </p>
     </div>
 
-    <input
-      class="music-volume"
-      id="music-volume"
-      type="range"
-      min="0"
-      max="100"
-      value="50"
-      aria-label="Âm lượng"
-    />
+    <div class="music-main">
+      <button class="music-toggle" id="music-toggle" type="button" aria-label="Phát nhạc">▶</button>
+
+      <button class="music-meta" id="music-info-btn" type="button" aria-expanded="false" aria-controls="music-details">
+        <span class="music-title">
+          <span class="music-title-text" id="music-title">♪ Bấm để nghe nhạc</span>
+          <span class="music-info-icon" aria-hidden="true">i</span>
+        </span>
+        <span class="music-credit">Đã xin phép <b>Jacketkat</b> và <b>LUNY Remix</b></span>
+      </button>
+
+      <input
+        class="music-volume"
+        id="music-volume"
+        type="range"
+        min="0"
+        max="100"
+        value="50"
+        aria-label="Âm lượng"
+      />
+    </div>
+
+    <div class="music-progress">
+      <span class="music-time" id="time-current">0:00</span>
+      <input
+        class="music-seek"
+        id="music-seek"
+        type="range"
+        min="0"
+        max="100"
+        step="0.1"
+        value="0"
+        aria-label="Tua nhạc"
+      />
+      <span class="music-time end" id="time-total">0:00</span>
+    </div>
   </div>
 
   <script>
@@ -523,13 +826,77 @@
       var player = null;
       var ready = false;
       var started = false;
+      var dragging = false;
+      var timer = null;
 
       var widget = document.getElementById("music-widget");
       var toggle = document.getElementById("music-toggle");
       var title = document.getElementById("music-title");
       var volume = document.getElementById("music-volume");
+      var seek = document.getElementById("music-seek");
+      var timeCurrent = document.getElementById("time-current");
+      var timeTotal = document.getElementById("time-total");
+      var infoBtn = document.getElementById("music-info-btn");
+      var details = document.getElementById("music-details");
+      var detailsClose = document.getElementById("details-close");
+      var detailsTitle = document.getElementById("details-title");
+      var detailsChannel = document.getElementById("details-channel");
 
-      // Nạp YouTube IFrame API
+      // ---------- Tiện ích ----------
+      function fmt(sec) {
+        sec = Math.max(0, Math.floor(sec || 0));
+        var h = Math.floor(sec / 3600);
+        var m = Math.floor((sec % 3600) / 60);
+        var s = sec % 60;
+        var ss = (s < 10 ? "0" : "") + s;
+        if (h > 0) return h + ":" + (m < 10 ? "0" : "") + m + ":" + ss;
+        return m + ":" + ss;
+      }
+
+      function setSeekVisual(percent) {
+        seek.style.setProperty("--p", percent + "%");
+      }
+
+      function refreshInfo() {
+        try {
+          var data = player.getVideoData();
+          if (data && data.title) {
+            title.textContent = "♪ " + data.title;
+            detailsTitle.textContent = data.title;
+          }
+          if (data && data.author) {
+            detailsChannel.textContent = "Kênh: " + data.author;
+          }
+        } catch (e) {}
+      }
+
+      function updateProgress() {
+        if (!ready || dragging) return;
+        var cur = 0, dur = 0;
+        try {
+          cur = player.getCurrentTime() || 0;
+          dur = player.getDuration() || 0;
+        } catch (e) {}
+        timeCurrent.textContent = fmt(cur);
+        timeTotal.textContent = fmt(dur);
+        var pct = dur > 0 ? (cur / dur) * 100 : 0;
+        seek.value = pct;
+        setSeekVisual(pct);
+      }
+
+      function startTimer() {
+        stopTimer();
+        timer = setInterval(updateProgress, 500);
+      }
+
+      function stopTimer() {
+        if (timer) {
+          clearInterval(timer);
+          timer = null;
+        }
+      }
+
+      // ---------- Nạp YouTube IFrame API ----------
       var tag = document.createElement("script");
       tag.src = "https://www.youtube.com/iframe_api";
       document.head.appendChild(tag);
@@ -564,32 +931,31 @@
       function onReady() {
         ready = true;
         player.setVolume(Number(volume.value));
-        try {
-          var data = player.getVideoData();
-          if (data && data.title) {
-            title.textContent = "♪ " + data.title;
-          }
-        } catch (e) {}
+        refreshInfo();
+        updateProgress();
       }
 
       function onStateChange(e) {
         if (e.data === YT.PlayerState.PLAYING) {
           setUI(true);
-          try {
-            var data = player.getVideoData();
-            if (data && data.title) title.textContent = "♪ " + data.title;
-          } catch (err) {}
+          refreshInfo();
+          updateProgress();
+          startTimer();
         } else if (e.data === YT.PlayerState.PAUSED) {
           setUI(false);
+          updateProgress();
+          stopTimer();
         } else if (e.data === YT.PlayerState.ENDED) {
-          player.seekTo(0);
+          player.seekTo(0, true);
           player.playVideo(); // lặp lại
         }
       }
 
       function onError() {
         setUI(false);
+        stopTimer();
         title.textContent = "Không phát được nhạc";
+        detailsTitle.textContent = "Không phát được nhạc";
       }
 
       function setUI(isPlaying) {
@@ -609,6 +975,7 @@
         player.pauseVideo();
       }
 
+      // ---------- Điều khiển ----------
       toggle.addEventListener("click", function () {
         if (!ready) return;
         var state = player.getPlayerState();
@@ -623,7 +990,59 @@
         if (ready) player.setVolume(Number(volume.value));
       });
 
-      // Tự phát nhạc ở lần tương tác đầu tiên của người xem
+      // Tua nhạc
+      seek.addEventListener("input", function () {
+        dragging = true;
+        var pct = Number(seek.value);
+        setSeekVisual(pct);
+        if (ready) {
+          var dur = player.getDuration() || 0;
+          timeCurrent.textContent = fmt((pct / 100) * dur);
+        }
+      });
+
+      seek.addEventListener("change", function () {
+        if (ready) {
+          var dur = player.getDuration() || 0;
+          player.seekTo((Number(seek.value) / 100) * dur, true);
+        }
+        dragging = false;
+        updateProgress();
+      });
+
+      // ---------- Bảng thông tin ----------
+      function openDetails() {
+        details.classList.add("open");
+        infoBtn.setAttribute("aria-expanded", "true");
+        if (ready) refreshInfo();
+      }
+
+      function closeDetails() {
+        details.classList.remove("open");
+        infoBtn.setAttribute("aria-expanded", "false");
+      }
+
+      infoBtn.addEventListener("click", function () {
+        if (details.classList.contains("open")) {
+          closeDetails();
+        } else {
+          openDetails();
+        }
+      });
+
+      detailsClose.addEventListener("click", closeDetails);
+
+      document.addEventListener("click", function (e) {
+        if (!details.classList.contains("open")) return;
+        if (e.target.closest && e.target.closest("#music-widget")) return;
+        closeDetails();
+      });
+
+      document.addEventListener("keydown", function (e) {
+        if (e.key === "Escape") closeDetails();
+      });
+
+      // ---------- Tự phát ở lần tương tác đầu tiên ----------
       // (trình duyệt không cho tự phát có tiếng khi chưa có tương tác).
       // Muốn tắt tính năng này: xóa đoạn bên dưới.
       function firstInteraction(e) {
