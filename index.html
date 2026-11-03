@@ -747,20 +747,20 @@
       </div>
 
       <h4 class="details-title" id="details-title">Đang tải thông tin...</h4>
-      <p class="details-channel" id="details-channel">—</p>
+      <p class="details-channel" id="details-channel">Video đăng bởi: Anh Rồng</p>
 
       <dl class="details-list">
         <div class="details-row">
           <dt>Nguồn</dt>
-          <dd>YouTube — bài nhạc được đăng bởi chính nghệ sĩ.</dd>
+          <dd>YouTube — video do <b>Anh Rồng</b> đăng tải, phát qua trình phát nhúng chính thức của YouTube.</dd>
         </div>
         <div class="details-row">
           <dt>Bản quyền</dt>
-          <dd>Thuộc về <b>Jacketkat</b> và <b>LUNY Remix</b>.</dd>
+          <dd>Thuộc về <b>Jacketkat</b> và <b>LUNY Remix</b>. Mình không sở hữu bản nhạc này.</dd>
         </div>
         <div class="details-row">
           <dt>Quyền sử dụng</dt>
-          <dd>Đã xin phép <b>Jacketkat</b> và <b>LUNY Remix</b> trước khi sử dụng trên trang này.</dd>
+          <dd>Được <b>Jacketkat</b> và <b>LUNY Remix</b> cho phép nhúng bài nhạc từ YouTube lên trang cá nhân phi thương mại này. Nếu cần gỡ, vui lòng liên hệ qua mục Liên hệ.</dd>
         </div>
       </dl>
 
@@ -774,7 +774,7 @@
       </a>
 
       <p class="details-thanks">
-        Cảm ơn các nghệ sĩ đã cho phép mình sử dụng bản nhạc này. Hãy ủng hộ họ nhé 💚
+        Cảm ơn Jacketkat, LUNY Remix và Anh Rồng. Hãy ủng hộ các bạn ấy trên YouTube nhé 💚
       </p>
     </div>
 
@@ -786,7 +786,7 @@
           <span class="music-title-text" id="music-title">♪ Bấm để nghe nhạc</span>
           <span class="music-info-icon" aria-hidden="true">i</span>
         </span>
-        <span class="music-credit">Đã xin phép <b>Jacketkat</b> và <b>LUNY Remix</b></span>
+        <span class="music-credit">Nhúng từ YouTube · <b>Jacketkat</b>, <b>LUNY Remix</b> · Video: <b>Anh Rồng</b></span>
       </button>
 
       <input
@@ -840,7 +840,6 @@
       var details = document.getElementById("music-details");
       var detailsClose = document.getElementById("details-close");
       var detailsTitle = document.getElementById("details-title");
-      var detailsChannel = document.getElementById("details-channel");
 
       // ---------- Tiện ích ----------
       function fmt(sec) {
@@ -863,9 +862,6 @@
           if (data && data.title) {
             title.textContent = "♪ " + data.title;
             detailsTitle.textContent = data.title;
-          }
-          if (data && data.author) {
-            detailsChannel.textContent = "Kênh: " + data.author;
           }
         } catch (e) {}
       }
