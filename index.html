@@ -31,6 +31,106 @@
       transform: translateY(-2px);
       box-shadow: 0 8px 24px rgba(110, 210, 130, 0.18);
     }
+
+    /* ===== MUSIC WIDGET ===== */
+    #yt-player-wrap {
+      position: fixed;
+      left: -9999px;
+      top: 0;
+      width: 200px;
+      height: 200px;
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    .music-widget {
+      position: fixed;
+      right: 20px;
+      bottom: 20px;
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      max-width: calc(100vw - 40px);
+      padding: 10px 18px 10px 10px;
+      border-radius: 999px;
+      border: 1px solid rgba(110, 210, 130, 0.25);
+      background: rgba(11, 17, 14, 0.82);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      box-shadow: 0 10px 34px rgba(0, 0, 0, 0.4);
+      color: #e8f5ea;
+      font-family: "Be Vietnam Pro", sans-serif;
+    }
+
+    .music-toggle {
+      position: relative;
+      flex-shrink: 0;
+      width: 46px;
+      height: 46px;
+      border: 0;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 18px;
+      color: #0b110e;
+      background: #6ed282;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .music-toggle:hover {
+      transform: scale(1.06);
+      box-shadow: 0 0 0 6px rgba(110, 210, 130, 0.18);
+    }
+
+    .music-widget.is-playing .music-toggle {
+      animation: music-pulse 2s ease-in-out infinite;
+    }
+
+    @keyframes music-pulse {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(110, 210, 130, 0.45); }
+      50% { box-shadow: 0 0 0 9px rgba(110, 210, 130, 0); }
+    }
+
+    .music-meta {
+      display: flex;
+      flex-direction: column;
+      gap: 3px;
+      min-width: 0;
+    }
+
+    .music-title {
+      font-size: 0.82rem;
+      font-weight: 600;
+      line-height: 1.2;
+    }
+
+    .music-credit {
+      font-size: 0.7rem;
+      line-height: 1.3;
+      opacity: 0.75;
+    }
+
+    .music-credit b {
+      color: #6ed282;
+      font-weight: 700;
+    }
+
+    .music-volume {
+      width: 70px;
+      accent-color: #6ed282;
+      cursor: pointer;
+    }
+
+    @media (max-width: 560px) {
+      .music-widget {
+        right: 12px;
+        bottom: 12px;
+        gap: 10px;
+      }
+      .music-volume {
+        display: none;
+      }
+    }
   </style>
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -389,8 +489,152 @@
     <span class="footer-copy">© <span id="year"></span> neotwis</span>
   </footer>
 
+  <!-- ===== MUSIC WIDGET (player YouTube ẩn, chỉ phát âm thanh) ===== -->
+  <div id="yt-player-wrap" aria-hidden="true">
+    <div id="yt-player"></div>
+  </div>
+
+  <div class="music-widget" id="music-widget">
+    <button class="music-toggle" id="music-toggle" type="button" aria-label="Phát nhạc">▶</button>
+
+    <div class="music-meta">
+      <span class="music-title" id="music-title">♪ Bấm để nghe nhạc</span>
+      <span class="music-credit">Đã xin phép <b>Jacketkat</b> và <b>LUNY Remix</b></span>
+    </div>
+
+    <input
+      class="music-volume"
+      id="music-volume"
+      type="range"
+      min="0"
+      max="100"
+      value="50"
+      aria-label="Âm lượng"
+    />
+  </div>
+
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+
+  <script>
+    (function () {
+      var VIDEO_ID = "o2WqugLvzZM";
+      var player = null;
+      var ready = false;
+      var started = false;
+
+      var widget = document.getElementById("music-widget");
+      var toggle = document.getElementById("music-toggle");
+      var title = document.getElementById("music-title");
+      var volume = document.getElementById("music-volume");
+
+      // Nạp YouTube IFrame API
+      var tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      document.head.appendChild(tag);
+
+      window.onYouTubeIframeAPIReady = function () {
+        var vars = {
+          autoplay: 0,
+          controls: 0,
+          disablekb: 1,
+          fs: 0,
+          rel: 0,
+          playsinline: 1,
+          modestbranding: 1
+        };
+        if (location.protocol.indexOf("http") === 0) {
+          vars.origin = location.origin;
+        }
+
+        player = new YT.Player("yt-player", {
+          width: "200",
+          height: "200",
+          videoId: VIDEO_ID,
+          playerVars: vars,
+          events: {
+            onReady: onReady,
+            onStateChange: onStateChange,
+            onError: onError
+          }
+        });
+      };
+
+      function onReady() {
+        ready = true;
+        player.setVolume(Number(volume.value));
+        try {
+          var data = player.getVideoData();
+          if (data && data.title) {
+            title.textContent = "♪ " + data.title;
+          }
+        } catch (e) {}
+      }
+
+      function onStateChange(e) {
+        if (e.data === YT.PlayerState.PLAYING) {
+          setUI(true);
+          try {
+            var data = player.getVideoData();
+            if (data && data.title) title.textContent = "♪ " + data.title;
+          } catch (err) {}
+        } else if (e.data === YT.PlayerState.PAUSED) {
+          setUI(false);
+        } else if (e.data === YT.PlayerState.ENDED) {
+          player.seekTo(0);
+          player.playVideo(); // lặp lại
+        }
+      }
+
+      function onError() {
+        setUI(false);
+        title.textContent = "Không phát được nhạc";
+      }
+
+      function setUI(isPlaying) {
+        widget.classList.toggle("is-playing", isPlaying);
+        toggle.textContent = isPlaying ? "❚❚" : "▶";
+        toggle.setAttribute("aria-label", isPlaying ? "Tạm dừng nhạc" : "Phát nhạc");
+      }
+
+      function play() {
+        if (!ready) return;
+        started = true;
+        player.playVideo();
+      }
+
+      function pause() {
+        if (!ready) return;
+        player.pauseVideo();
+      }
+
+      toggle.addEventListener("click", function () {
+        if (!ready) return;
+        var state = player.getPlayerState();
+        if (state === YT.PlayerState.PLAYING) {
+          pause();
+        } else {
+          play();
+        }
+      });
+
+      volume.addEventListener("input", function () {
+        if (ready) player.setVolume(Number(volume.value));
+      });
+
+      // Tự phát nhạc ở lần tương tác đầu tiên của người xem
+      // (trình duyệt không cho tự phát có tiếng khi chưa có tương tác).
+      // Muốn tắt tính năng này: xóa đoạn bên dưới.
+      function firstInteraction(e) {
+        if (started) return;
+        if (e.target && e.target.closest && e.target.closest("#music-widget")) return;
+        play();
+      }
+      ["pointerdown", "keydown", "touchstart"].forEach(function (evt) {
+        document.addEventListener(evt, firstInteraction, { once: true, passive: true });
+      });
+    })();
   </script>
 </body>
 </html>
