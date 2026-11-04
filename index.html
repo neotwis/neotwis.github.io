@@ -9,6 +9,19 @@
   <link rel="stylesheet" href="style.css" />
 
   <style>
+    /* Chặn trang bị tràn ngang (nguyên nhân khiến widget bị lệch ra ngoài) */
+    html {
+      overflow-x: hidden;
+      max-width: 100%;
+    }
+
+    body {
+      overflow-x: hidden;
+      overflow-x: clip;
+      max-width: 100%;
+      position: relative;
+    }
+
     .projects-more {
       display: flex;
       justify-content: center;
@@ -43,6 +56,11 @@
       pointer-events: none;
     }
 
+    .music-widget,
+    .music-widget * {
+      box-sizing: border-box;
+    }
+
     .music-widget {
       position: fixed;
       right: 20px;
@@ -56,7 +74,7 @@
       padding: 12px 16px 12px 12px;
       border-radius: 22px;
       border: 1px solid rgba(110, 210, 130, 0.25);
-      background: rgba(11, 17, 14, 0.86);
+      background: rgba(11, 17, 14, 0.9);
       backdrop-filter: blur(12px);
       -webkit-backdrop-filter: blur(12px);
       box-shadow: 0 10px 34px rgba(0, 0, 0, 0.4);
@@ -72,6 +90,7 @@
       display: flex;
       align-items: center;
       gap: 12px;
+      min-width: 0;
     }
 
     .music-toggle {
@@ -103,8 +122,10 @@
     }
 
     .music-meta {
-      flex: 1;
+      flex: 1 1 0;
       min-width: 0;
+      max-width: 100%;
+      overflow: hidden;
       display: flex;
       flex-direction: column;
       gap: 3px;
@@ -154,6 +175,10 @@
 
     .music-credit {
       display: block;
+      min-width: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
       font-size: 0.7rem;
       line-height: 1.3;
       opacity: 0.75;
@@ -165,6 +190,7 @@
     }
 
     .music-volume {
+      flex-shrink: 0;
       width: 64px;
       accent-color: #6ed282;
       cursor: pointer;
@@ -174,12 +200,12 @@
     .music-collapse {
       display: none;
       flex-shrink: 0;
-      width: 40px;
-      height: 40px;
+      width: 34px;
+      height: 34px;
       border: 0;
       border-radius: 50%;
       cursor: pointer;
-      font-size: 1rem;
+      font-size: 0.95rem;
       color: #e8f5ea;
       background: rgba(255, 255, 255, 0.08);
       transition: transform 0.25s ease, background 0.2s ease;
@@ -358,6 +384,7 @@
 
     .details-row dd {
       margin: 0;
+      word-break: break-word;
     }
 
     .details-row b {
@@ -393,21 +420,21 @@
       text-align: center;
     }
 
-    /* ===== MOBILE ===== */
+    /* ===== MOBILE (gọn) ===== */
     @media (max-width: 600px) {
       body {
-        padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
+        padding-bottom: calc(78px + env(safe-area-inset-bottom, 0px));
       }
 
       .music-widget {
-        left: 10px;
-        right: 10px;
-        bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+        left: 8px;
+        right: 8px;
+        bottom: calc(8px + env(safe-area-inset-bottom, 0px));
         width: auto;
         max-width: none;
-        gap: 8px;
-        padding: 10px 10px 10px 10px;
-        border-radius: 18px;
+        gap: 6px;
+        padding: 8px 10px 8px 8px;
+        border-radius: 16px;
       }
 
       .music-main {
@@ -415,8 +442,9 @@
       }
 
       .music-toggle {
-        width: 44px;
-        height: 44px;
+        width: 40px;
+        height: 40px;
+        font-size: 15px;
       }
 
       .music-toggle:hover {
@@ -425,13 +453,11 @@
       }
 
       .music-title {
-        font-size: 0.85rem;
+        font-size: 0.8rem;
       }
 
       .music-credit {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        white-space: nowrap;
+        font-size: 0.66rem;
       }
 
       .music-volume {
@@ -447,8 +473,7 @@
         transform: rotate(180deg);
       }
 
-      .music-widget.is-collapsed .music-progress,
-      .music-widget.is-collapsed .music-credit {
+      .music-widget.is-collapsed .music-progress {
         display: none;
       }
 
@@ -458,11 +483,12 @@
       }
 
       .music-time {
-        font-size: 0.72rem;
+        min-width: 30px;
+        font-size: 0.68rem;
       }
 
       .music-seek {
-        height: 28px;
+        height: 26px;
       }
 
       .music-seek::-webkit-slider-thumb {
@@ -476,26 +502,58 @@
         height: 16px;
       }
 
+      /* Bảng thông tin gọn */
       .music-details {
-        bottom: calc(100% + 10px);
-        max-height: calc(100vh - 170px - env(safe-area-inset-bottom, 0px));
-        max-height: calc(100dvh - 170px - env(safe-area-inset-bottom, 0px));
-        padding: 16px;
+        bottom: calc(100% + 8px);
+        max-height: calc(100vh - 130px - env(safe-area-inset-bottom, 0px));
+        max-height: calc(100dvh - 130px - env(safe-area-inset-bottom, 0px));
+        padding: 12px 14px;
+        border-radius: 14px;
+      }
+
+      .details-head {
+        margin-bottom: 6px;
+        align-items: center;
       }
 
       .details-close {
-        width: 36px;
-        height: 36px;
-        margin: -6px -6px 0 0;
+        width: 30px;
+        height: 30px;
       }
 
-      .details-link {
-        min-height: 44px;
+      .details-title {
         font-size: 0.9rem;
+        line-height: 1.3;
+      }
+
+      .details-channel {
+        margin-bottom: 8px;
+        font-size: 0.72rem;
+      }
+
+      .details-list {
+        gap: 8px;
+        margin-bottom: 10px;
+        padding: 10px 0;
       }
 
       .details-row {
-        font-size: 0.82rem;
+        font-size: 0.74rem;
+        line-height: 1.45;
+      }
+
+      .details-row dt {
+        font-size: 0.6rem;
+      }
+
+      .details-link {
+        min-height: 40px;
+        padding: 9px 12px;
+        font-size: 0.8rem;
+      }
+
+      .details-thanks {
+        display: none;
       }
     }
   </style>
@@ -1019,6 +1077,18 @@
         }
       }
 
+      // ---------- Bảng thông tin ----------
+      function openDetails() {
+        details.classList.add("open");
+        infoBtn.setAttribute("aria-expanded", "true");
+        if (ready) refreshInfo();
+      }
+
+      function closeDetails() {
+        details.classList.remove("open");
+        infoBtn.setAttribute("aria-expanded", "false");
+      }
+
       // ---------- Thu gọn / mở rộng (mobile) ----------
       var mq = window.matchMedia("(max-width: 600px)");
 
@@ -1158,18 +1228,6 @@
         updateProgress();
       });
 
-      // ---------- Bảng thông tin ----------
-      function openDetails() {
-        details.classList.add("open");
-        infoBtn.setAttribute("aria-expanded", "true");
-        if (ready) refreshInfo();
-      }
-
-      function closeDetails() {
-        details.classList.remove("open");
-        infoBtn.setAttribute("aria-expanded", "false");
-      }
-
       infoBtn.addEventListener("click", function () {
         if (details.classList.contains("open")) {
           closeDetails();
@@ -1191,8 +1249,7 @@
       });
 
       // ---------- Tự phát ở lần tương tác đầu tiên ----------
-      // Dùng click/touchend (không dùng pointerdown/touchstart) vì iOS Safari
-      // chỉ cho phát nhạc sau một cú chạm hoàn chỉnh.
+      // Dùng click/touchend vì iOS Safari chỉ cho phát nhạc sau một cú chạm hoàn chỉnh.
       // Muốn tắt tính năng này: xóa đoạn bên dưới.
       function firstInteraction(e) {
         if (started) return;
