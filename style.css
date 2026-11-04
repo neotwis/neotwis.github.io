@@ -22,10 +22,13 @@
 html {
   scroll-behavior: smooth;
   scroll-padding-top: 90px;
+  overflow-x: hidden;
+  max-width: 100%;
 }
 
 body {
   min-height: 100vh;
+  max-width: 100%;
   overflow-x: hidden;
   background: var(--bg);
   color: var(--text);
@@ -68,8 +71,9 @@ textarea {
   background: var(--green);
 }
 
+/* Đổi absolute -> fixed để không gây tràn ngang trang */
 .ambient {
-  position: absolute;
+  position: fixed;
   z-index: -1;
   width: 420px;
   height: 420px;
@@ -1097,6 +1101,7 @@ textarea {
   .hero-visual {
     min-height: 435px;
     margin-top: 8px;
+    overflow: hidden; /* Cắt phần vòng orbit thừa, tránh tràn ngang */
   }
 
   .profile-card {
